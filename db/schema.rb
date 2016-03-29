@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329200044) do
+ActiveRecord::Schema.define(version: 20160329202842) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "review_id"
@@ -31,8 +31,12 @@ ActiveRecord::Schema.define(version: 20160329200044) do
     t.string   "lname"
     t.string   "borough"
     t.string   "neighborhood"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
@@ -81,10 +85,6 @@ ActiveRecord::Schema.define(version: 20160329200044) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
