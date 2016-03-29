@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  station_id: 
+  title: MyString
+  content: MyText
+  rating: false
+  date_seen: 2016-03-29
+  artist_name: MyString
+  instruments: MyText
+  add_info: MyText
+
+two:
+  user_id: 
+  station_id: 
+  title: MyString
+  content: MyText
+  rating: false
+  date_seen: 2016-03-29
+  artist_name: MyString
+  instruments: MyText
+  add_info: MyText
