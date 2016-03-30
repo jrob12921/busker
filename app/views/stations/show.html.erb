@@ -2,3 +2,13 @@
   <li><%= @station.name %></li>
   <li><%= @station.line %></li>
 </ul>
+
+<ul>
+  <% @reviews.reverse_each do |r| %>
+  <li>
+    <%= r.date_seen%>
+    <%= r.title %>
+    <%= image_tag r.avatar.url(:thumb)%>
+  </li>
+  <% end %>
+</ul>
