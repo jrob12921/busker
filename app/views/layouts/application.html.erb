@@ -8,6 +8,45 @@
 </head>
 <body>
 
+	<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#buskerNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Buddha Busker</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="buskerNav">
+      <ul class="nav navbar-nav">
+				<li><%= link_to "Stations",   '#' %></li>
+        <li><%= link_to "Profile",   '#' %></li>
+        <li><%= link_to "Reviews",   '#' %></li>
+        <li><%= link_to "About",   '#' %></li> 
+      </ul>
+
+      <!-- THIS SECTION WILL NEED TO BE REVISED FOR RAILS
+      THIS IS JUST DEFAULT FOR VISUDAL FRONTEND FOR NOW -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+      <ul class ="nav navbar-nav navbar-right">
+	      <div class="input-group">
+			    <input type="text" class="form-control" placeholder="Search for...">
+			   <span class="input-group-btn">
+			     <button class="btn btn-default" type="button">Go!</button>
+			   </span>
+			  </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <%= yield %>
 
 </body>
