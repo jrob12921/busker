@@ -1,0 +1,24 @@
+<div class = "col-sm-4">
+
+  <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
+    <%= f.file_field :avatar %>
+    <%= f.submit :Update%>
+  <% end %>
+  <br>
+  <%= image_tag @profile.avatar.url(:medium)%>
+  <br><br>
+  <ul>
+      <li class = "form-control"><%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your username" %></li>
+
+    <li class = "form-control"><%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your first name" %></li>
+
+    <li class="form-control"><%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your last name" %></li>
+
+    <li class="form-control"><%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your borough" %></li>
+
+    <li class="form-control"><%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your neighborhood" %></li>
+  </ul>
+</div>
+
+
+  
