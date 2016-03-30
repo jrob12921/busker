@@ -53,3 +53,5 @@ gem "paperclip", "~> 4.2"
 gem 'gmaps4rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+

@@ -1,0 +1,10 @@
+<% @reviews.reverse_each do |review| %>
+
+  <div class="row click-row" data-href="stations/<%= review.station_id %>/reviews/<%= review.id %>">
+    <div class="col-xs-2 date"><%= review.date_seen %></div>
+    <div class="col-xs-8 title"><%= review.title %></div>
+    <div class="col-xs-2 avatar"><%= image_tag(review.avatar.url(:thumb)) %></div>
+  </div>
+
+
+<% end %>

@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-3 rev-3">Username:</div>
+  <div class="col-xs-4 rev-4"><%= @username %></div>
+  <div class="col-xs-2 rev-2">Date Seen:</div>
+  <div class="col-xs-3 rev-3 show-date"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">Rating:</div>
+  <div class="col-xs-4 rev-4">Thumbs Up</div>
+  <div class="col-xs-4 rev-4">Thumbs Down</div>
+  <div class="col-xs-1 rev-1"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">Content:</div>
+  <div class="col-xs-9 rev-9"><%= @review.content %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">Picture:</div>
+  <div class="col-xs-9 rev-9"><%= image_tag(@review.avatar.url(:medium)) %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">Artist Name:</div>
+  <div class="col-xs-9 rev-9"><%= @review.artist_name %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">Instruments:</div>
+  <div class="col-xs-9 rev-9"><%= @review.instruments %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3 rev-3">More Info:</div>
+  <div class="col-xs-9 rev-9"><%= @review.add_info %></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 rev-12">
+    <% if session[:id] && current_user.id == @review.user_id %>
+      <%= link_to("EDIT/DELETE", review_path(@review.id), method: :get) %>
+    <% end %>
+  </div>
+</div>
