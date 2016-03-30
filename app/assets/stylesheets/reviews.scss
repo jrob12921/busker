@@ -1,3 +1,23 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.date {
+  background-color: #f00;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  background-color: #00f;
+  color: #fff;
+  width:  100%;
+  text-align: center;
+}
+
+@import "bootstrap";
+// .avatar {
+//   width: 100%;
+// }

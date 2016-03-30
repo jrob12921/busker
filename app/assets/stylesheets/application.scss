@@ -11,5 +11,47 @@
  * file per style scope.
  *
  */
+
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.date {
+  background-color: #f00;
+  color: #fff;
+  // margin: auto;
+}
+
+.title {
+  background-color: #00f;
+  color: #fff;
+  // margin: auto;
+}
+
+.rev-3 {
+  border-top: 1px solid black;
+  font-size: 30px;
+}
+
+.rev-4 {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  font-size: 48px;  
+}
+
+.rev-9 {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  font-size: 48px;
+}
+
+.rev-12 {
+  border: 1px solid black;
+
+}
+
+.rev-9, .rev-4, .rev-3 {
+  padding: 0;
+  text-align: center;
+}
