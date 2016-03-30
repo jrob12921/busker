@@ -10,10 +10,54 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- */
- /*
  *= require rails_bootstrap_forms
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.date {
+  background-color: #f00;
+  color: #fff;
+  margin: auto;
+  font-size: 24px;
+}
+
+.title {
+  background-color: #00f;
+  color: #fff;
+  margin: auto;
+  font-size: 24px;
+}
+
+.rev-3, .rev-2 {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  font-size: 30px;
+}
+
+.rev-4, .show-date {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  font-size: 48px;  
+}
+
+.rev-9 {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  font-size: 48px;
+}
+
+.rev-12 {
+  border: 1px solid black;
+
+}
+
+.rev-9, .rev-4, .rev-3, .rev-2 {
+  padding: 0;
+  text-align: center;
+}
+
+.rev-1 {
+  border-top: 1px solid black;
+}
