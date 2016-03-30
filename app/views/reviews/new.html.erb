@@ -1,22 +1,36 @@
-<!-- <form role="form">
-  <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form> -->
 
-<%= form_for @review, html: {role: "form"} do |r| %>
 
-    <%= r.label "Review Title" %>
+<%= bootstrap_form_for(@review) do |r| %>
+
+    <%= r.hidden_field :user_id, value: current_user.id %>
+<!-- Need to add in station ID somehow... -->
+<!-- I might need to nest routes:  -->
+<!-- /stations/:id/reviews/new -->
+    <%= r.hidden_field :station_id, value: params[:station_id] %>
+
+    <%= r.label "*= Required Field" %>
+
+    <%= r.label "*Review Title:" %>
     <%= r.text_field :title %>
+
+    <%= r.label "*Review Content:" %>
+    <%= r.text_field :content %>
+
+    <%= r.label "*Rating:" %>
+    <%= r.radio_button :rating, "0" %>
+    <%= r.radio_button :rating, "1" %>
+
+    <%= r.label "*Date Seen:" %>
+    <%= r.date_field :date_seen, :value => Time.now.strftime('%Y-%m-%d') %>
+
+    <%= r.label "Artist Name:" %>
+    <%= r.text_field :artist_name %>
+    
+    <%= r.label "Instruments:" %>
+    <%= r.text_field :instruments %>
+
+    <%= r.label "More Info:" %>
+    <%= r.text_field :add_info %>
 
     <%= r.submit :create, value: "Post Review" %>
 

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :profiles
-  resources :stations
-  resources :reviews
-  resources :comments
+  resources :stations do
+    resources :reviews do
+      resources :comments
+    end
+  end
+
+  get "reviews" => "reviews#all"
+  # resources :reviews
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

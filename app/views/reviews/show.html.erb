@@ -1,8 +1,15 @@
 <div class="row">
+  <div class="col-xs-3 rev-3">Username:</div>
+  <div class="col-xs-4 rev-4"><%= @username %></div>
+  <div class="col-xs-2 rev-2">Date Seen:</div>
+  <div class="col-xs-3 rev-3 show-date"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
+</div>
+
+<div class="row">
   <div class="col-xs-3 rev-3">Rating:</div>
   <div class="col-xs-4 rev-4">Thumbs Up</div>
   <div class="col-xs-4 rev-4">Thumbs Down</div>
-  <div class="col-xs-1"><%= @review.date_seen %></div>
+  <div class="col-xs-1 rev-1"></div>
 </div>
 
 <div class="row">

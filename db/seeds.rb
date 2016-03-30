@@ -27,37 +27,20 @@ end
 # seed profiles
 ###############
 
+Profile.destroy_all
+
 x = User.first.id  
 
 profiles = [
-  [x, "Bob", "Dole", "bobbydole"],
-  [x + 1, "Bill", "Clinton", "prez42"],
-  [x + 2, "Al", "Gore", "manbearpig"],
-  [x + 3, "Ralph", "Nader", "independentmofo"]
+  [x, "Bob", "Dole", "bobbydole", "Manhattan", "LES"],
+  [x + 1, "Bill", "Clinton", "prez42", "Brooklyn", "Williamsburg"],
+  [x + 2, "Al", "Gore", "manbearpig", "Queens", "Sunnyside"],
+  [x + 3, "Ralph", "Nader", "independentmofo", "Bronx", "Da South Bronx"]
 ]
 
-##############
-# seed reviews
-##############
-
-y = Station.first.id
-
-reviews = [
-  [x, y, "OMG This Guy is Amazing!", "I loved listening to he guy. He is so fantastic. I recommend him to everyone.", 1, DateTime.new(2016, 3, 25), "IDK", "guitar","nice hair"],
-  [x, y + 1, "Damn, this guy sucks!", "This guy made me cry. His songs are so ****ing sad", 0, DateTime.new(2016, 2, 27),"Idiot", "acoustic", "nice leather jacket"],
-  [x + 1, y + 2, "You Bred Raptors? is the Bees' Knees", "These guys wear masks and shred like no one's business.  If you see them, take a minute, stop and listen", 1, DateTime.new(2010, 5, 17), "You Bred Raptors?", "7-string bass, drums, violin", "cool masks" ]
-  # ,
-  # [x + 1, y + 3],
-  # [x + 2, y + 4],
-  # [x + 2, y + 5],
-  # [x + 3, y + 6],
-  # [x + 3, y + 7]
-]
-
-reviews.each do | a, b, c, d, e, f, g, h, i |
-  Review.create(user_id: a, station_id: b, title: c, content: d, rating: e, date_seen: f, artist_name: g, instruments: h, add_info: i)
+profiles.each do | a, b, c, d, e, f|
+  Profile.create(user_id: a, fname: b, lname: c, username: d, borough: e, neighborhood: f)
 end
-
 
 ###############
 # seed stations
@@ -544,3 +527,26 @@ stations = [
 stations.each do | a, b, c, d |
   Station.create(name: a, line: b, lat: c, long: d)
 end 
+
+
+##############
+# seed reviews
+##############
+
+y = Station.first.id
+
+reviews = [
+  [x, y, "OMG This Guy is Amazing!", "I loved listening to he guy. He is so fantastic. I recommend him to everyone.", 1, DateTime.new(2016, 3, 25), "IDK", "guitar","nice hair"],
+  [x, y + 1, "Damn, this guy sucks!", "This guy made me cry. His songs are so ****ing sad", 0, DateTime.new(2016, 2, 27),"Idiot", "acoustic", "nice leather jacket"],
+  [x + 1, y + 2, "You Bred Raptors? is the Bees' Knees", "These guys wear masks and shred like no one's business.  If you see them, take a minute, stop and listen", 1, DateTime.new(2010, 5, 17), "You Bred Raptors?", "7-string bass, drums, violin", "cool masks" ]
+  # ,
+  # [x + 1, y + 3],
+  # [x + 2, y + 4],
+  # [x + 2, y + 5],
+  # [x + 3, y + 6],
+  # [x + 3, y + 7]
+]
+
+reviews.each do | a, b, c, d, e, f, g, h, i |
+  Review.create(user_id: a, station_id: b, title: c, content: d, rating: e, date_seen: f, artist_name: g, instruments: h, add_info: i)
+end

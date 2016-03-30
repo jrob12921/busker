@@ -1,10 +1,15 @@
 class ReviewsController < ApplicationController
-  def index
+  def all
     @reviews = Review.all
+  end
+
+  def index
+    @reviews = Review.where(station_id: params[:station_id])
   end
 
   def show
     @review = Review.find(params[:id])
+    @username = Profile.find_by(user_id: @review.user_id).username
   end
 
   def new
@@ -25,11 +30,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:station_id])
   end
 
   def update
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:station_id])
     @review.save
 
     if @review.save
@@ -42,7 +47,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:station_id])
     @review.destroy
   end
 
