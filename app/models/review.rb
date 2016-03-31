@@ -19,5 +19,4 @@ class Review < ActiveRecord::Base
 
   validates :date_seen, presence: {message: "Please include a valid date!"}
 
-  validates :date_seen, numericality: {less_than_or_equal_to: Time.now, message: "Date must be today or before today!"}
 end

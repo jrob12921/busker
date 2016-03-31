@@ -1,51 +1,133 @@
-<div class="row">
-  <div class="col-xs-3 rev-3">Title:</div>
-  <div class="col-xs-9 rev-9"><%= @review.title %></div>
-</div>
+<% if user_signed_in? && current_user.id == @review.user_id %>
 
 <div class="row">
-  <div class="col-xs-3 rev-3">Username:</div>
-  <div class="col-xs-4 rev-4"><%= @username %></div>
-  <div class="col-xs-2 rev-2">Date Seen:</div>
-  <div class="col-xs-3 rev-3 show-date"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">Rating:</div>
-  <div class="col-xs-4 rev-4">Thumbs Up</div>
-  <div class="col-xs-4 rev-4">Thumbs Down</div>
-  <div class="col-xs-1 rev-1"></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">Content:</div>
-  <div class="col-xs-9 rev-9"><%= @review.content %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">Picture:</div>
-  <div class="col-xs-9 rev-9"><%= image_tag(@review.avatar.url(:medium)) %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">Artist Name:</div>
-  <div class="col-xs-9 rev-9"><%= @review.artist_name %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">Instruments:</div>
-  <div class="col-xs-9 rev-9"><%= @review.instruments %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 rev-3">More Info:</div>
-  <div class="col-xs-9 rev-9"><%= @review.add_info %></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 rev-12">
-    <% if session[:id] && current_user.id == @review.user_id %>
-      <%= link_to("EDIT/DELETE", review_path(@review.id), method: :get) %>
-    <% end %>
+  <div class="col-xs-2">Title:</div>
+    <div class = "form-control">
+      <div class= "col-xs-6">
+        <%= best_in_place @review, :title, :path => station_review_path, :data => {:review_title => @review.title}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-2">Date Seen:</div>
+    <div class = "form-control">
+     <div class= "col-xs-6">
+      <%= best_in_place @review, :date_seen, :path => station_review_path, :data => {:review_date_seen => @review.date_seen}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">Rating:</div>
+    <div class = "form-control">
+      <div class= "col-xs-6">
+        <%= best_in_place @review, :rating, :path => station_review_path, :data => {:review_rating => @review.rating}, :classes => 'highlight_on_success', :as => :input %>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">Content:</div>
+    <div class = "form-control">
+      <div class= "col-xs-6">    
+        <%= best_in_place @review, :content, :path => station_review_path, :data => {:review_content => @review.content}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">Artist Name:</div>
+    <div class = "form-control">
+      <div class= "col-xs-6">
+        <%= best_in_place @review, :artist_name, :path => station_review_path, :data => {:review_artist_name => @review.artist_name}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">Instruments:</div>
+    <div class = "form-control">
+      <div class= "col-xs-6">
+        <%= best_in_place @review, :instruments, :path => station_review_path, :data => {:review_instruments => @review.instruments}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">More Info:</div>
+    <div class = "form-control">
+     <div class= "col-xs-6">
+      <%= best_in_place @review, :add_info, :path => station_review_path, :data => {:review_add_info => @review.add_info}, :classes => 'highlight_on_success', :as => :input %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4"></div>
+    <%= bootstrap_form_for @review, :url => station_review_path(@review.id), :html => { :multipart => true} do |f| %>
+    <%= f.file_field :avatar %>
+    <%= f.submit :update %>
+    <% end %>
+  </div>
+  <div class="col-xs-4">
+    <%= image_tag @review.avatar.url(:medium)%>
+  </div>
+</div>
+
+
+<% else %>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Title:</div>
+    <div class="col-xs-9 rev-9"><%= @review.title %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Username:</div>
+    <div class="col-xs-4 rev-4"><%= @username %></div>
+    <div class="col-xs-2 rev-2">Date Seen:</div>
+    <div class="col-xs-3 rev-3 show-date"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Rating:</div>
+    <div class="col-xs-4 rev-4">Thumbs Up</div>
+    <div class="col-xs-4 rev-4">Thumbs Down</div>
+    <div class="col-xs-1 rev-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Content:</div>
+    <div class="col-xs-9 rev-9"><%= @review.content %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Picture:</div>
+    <div class="col-xs-9 rev-9"><%= image_tag(@review.avatar.url(:medium)) %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Artist Name:</div>
+    <div class="col-xs-9 rev-9"><%= @review.artist_name %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">Instruments:</div>
+    <div class="col-xs-9 rev-9"><%= @review.instruments %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3 rev-3">More Info:</div>
+    <div class="col-xs-9 rev-9"><%= @review.add_info %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 rev-12">
+      <% if session[:id] && current_user.id == @review.user_id %>
+        <%= link_to("EDIT/DELETE", review_path(@review.id), method: :get) %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
