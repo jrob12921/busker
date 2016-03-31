@@ -63,7 +63,6 @@
 #map-container, #map {
   width: 100vw;
   height: 100vh;
-}
 
 .rev-3, .rev-2 {
   border-top: 1px solid black;
@@ -95,4 +94,8 @@
 
 .rev-1 {
   border-top: 1px solid black;
+}
+
+textarea { 
+  resize: none; 
 }

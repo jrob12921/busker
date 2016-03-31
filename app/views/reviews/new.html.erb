@@ -1,35 +1,41 @@
 
 
-<%= bootstrap_form_for(@review, url: station_reviews_path, method: :post) do |r| %>
-
-    <%= r.hidden_field :user_id, value: current_user.id %>
-
-    <%= r.hidden_field :station_id, value: params[:station_id] %>
-
-    <%= r.label "*= Required Field" %>
-
-    <%= r.label "*Review Title:" %>
-    <%= r.text_field :title %>
-
-    <%= r.label "*Review Content:" %>
-    <%= r.text_field :content %>
-
-    <%= r.label "*Rating:" %>
-    <%= r.radio_button :rating, "0" %>
-    <%= r.radio_button :rating, "1" %>
-
-    <%= r.label "*Date Seen:" %>
-    <%= r.date_field :date_seen, :value => Time.now.strftime('%Y-%m-%d') %>
-
-    <%= r.label "Artist Name:" %>
-    <%= r.text_field :artist_name %>
-    
-    <%= r.label "Instruments:" %>
-    <%= r.text_field :instruments %>
-
-    <%= r.label "More Info:" %>
-    <%= r.text_field :add_info %>
-
-    <%= r.submit "Post Review" %>
-
+<% if @review.errors.full_messages.any? %>
+  <% @review.errors.full_messages.each do |error_message| %><br/>
+    <%= error_message %>
+  <% end %>
 <% end %>
+
+<div class="col-xs-9">
+
+  <%= bootstrap_form_for(@review, url: station_reviews_path, method: :post, :html => {:multipart => true}) do |r| %>
+
+      <%= r.hidden_field :user_id, value: current_user.id %>
+
+      <%= r.hidden_field :station_id, value: params[:station_id] %>
+
+      <%= r.label "*= Required Field" %>
+
+      <%= r.text_field :title, label: "*Title" %>
+
+      <%= r.text_area :content, label: "*Content", rows: 4 %>
+
+      <%= r.label "*Rating" %>
+      <%= r.radio_button :rating, true %>
+      <%= r.radio_button :rating, false %>
+
+      <%= r.date_field :date_seen, :value => Time.now.strftime('%Y-%m-%d'), min: Date.new(1904, 10, 27), max: Date.today, label: "*Date" %>
+
+      <%= r.text_field :artist_name %>
+      
+      <%= r.text_field :instruments %>
+
+      <%= r.text_area :add_info, rows: 4 %>
+
+      <%= r.file_field :avatar %>
+
+      <%= r.submit "Post Review" %>
+
+  <% end %>
+
+</div>

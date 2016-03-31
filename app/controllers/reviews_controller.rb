@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def mine
+    @reviews = Review.where(user_id: current_user.id)
+  end
+
   def index
     @reviews = Review.where(station_id: params[:station_id])
   end
@@ -30,20 +34,22 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find(params[:station_id])
-  end
+  # def edit
+  #   @review = Review.find(params[:id])
+  # end
 
   def update
-    @review = Review.find(params[:station_id])
-    @review.save
+    @review = Review.find(params[:id])
+    @review.update(review_params)
 
-    if @review.save
-      flash[:alert] = "Review has been updated created."
-      redirect_to review_path(@review.id)
-    else
-      flash[:alert] = "There was an error updating the review."
-      render :edit
+    respond_to do |format|
+      if @review.update_attributes(review_params)
+        format.html { redirect_to(@review, :alert => 'Review updated') }
+        format.json { respond_with_bip(@review) }
+      else
+        format.html { render :action => "show" }
+        format.json { respond_with_bip(@review) }
+      end
     end
   end
 
