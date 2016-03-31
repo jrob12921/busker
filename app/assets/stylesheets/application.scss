@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 .date {
   background-color: #f00;
   color: #fff;
@@ -60,4 +61,8 @@
 
 .rev-1 {
   border-top: 1px solid black;
+}
+
+textarea { 
+  resize: none; 
 }

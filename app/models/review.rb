@@ -10,4 +10,13 @@ class Review < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, 
     :content_type => /\Aimage\/.*\Z/
+
+  validates :title, presence: {message: "Please include a title!"}
+
+  validates :content, presence: {message: "Please include some content!"}
+
+  validates :rating, presence: {message: "Please include a rating!"}
+
+  validates :date_seen, presence: {message: "Please include a valid date!"}
+
 end

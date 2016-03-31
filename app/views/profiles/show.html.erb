@@ -9,7 +9,7 @@
     <%= image_tag @profile.avatar.url(:medium)%>
     <br><br>
     <ul>
-        <li class = "form-control"><%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your username" %></li>
+      <li class = "form-control"><%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your username" %></li>
 
       <li class = "form-control"><%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your first name" %></li>
 
