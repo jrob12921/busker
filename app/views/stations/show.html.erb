@@ -1,15 +1,18 @@
-<ul>
-  <li><%= @station.name %></li>
-  <li><%= @station.line %></li>
-</ul>
+<div class="row"> 
+  <div class="col-xs-4">
+    <%= @station.name %>
+    <%= @station.line %>
+    <%= link_to("New Review", new_station_review_path(@station), method: :get ) %>
+  </div>
+</div>
 
-<ul>
-  <% @reviews.reverse_each do |r| %>
-  <li>
-    <%= r.date_seen%>
-    <%= r.title %>
-    <%= image_tag r.avatar.url(:thumb)%>
-  </li>
-  <% end %>
-</ul>
+<% @reviews.reverse_each do |review| %>
 
+  <div class="row click-row" data-href="stations/<%= review.station_id %>/reviews/<%= review.id %>">
+    <div class="col-xs-2 date"><%= review.date_seen %></div>
+    <div class="col-xs-8 title"><%= review.title %></div>
+    <div class="col-xs-2 avatar"><%= image_tag(review.avatar.url(:thumb)) %></div>
+  </div>
+
+
+<% end %>

@@ -1,11 +1,9 @@
 
 
-<%= bootstrap_form_for(@review) do |r| %>
+<%= bootstrap_form_for(@review, url: station_reviews_path, method: :post) do |r| %>
 
     <%= r.hidden_field :user_id, value: current_user.id %>
-<!-- Need to add in station ID somehow... -->
-<!-- I might need to nest routes:  -->
-<!-- /stations/:id/reviews/new -->
+
     <%= r.hidden_field :station_id, value: params[:station_id] %>
 
     <%= r.label "*= Required Field" %>
@@ -32,6 +30,6 @@
     <%= r.label "More Info:" %>
     <%= r.text_field :add_info %>
 
-    <%= r.submit :create, value: "Post Review" %>
+    <%= r.submit "Post Review" %>
 
 <% end %>
