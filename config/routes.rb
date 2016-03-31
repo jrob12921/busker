@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "my_reviews" => "reviews#mine"
+
   get "reviews" => "reviews#all"
   # resources :reviews
 
