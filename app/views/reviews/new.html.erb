@@ -17,8 +17,8 @@
     <%= r.text_field :content %>
 
     <%= r.label "*Rating:" %>
-    <%= r.radio_button :rating, "0" %>
-    <%= r.radio_button :rating, "1" %>
+    <%= r.radio_button :rating, true %>
+    <%= r.radio_button :rating, false %>
 
     <%= r.label "*Date Seen:" %>
     <%= r.date_field :date_seen, :value => Time.now.strftime('%Y-%m-%d') %>

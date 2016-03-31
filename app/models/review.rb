@@ -10,4 +10,14 @@ class Review < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, 
     :content_type => /\Aimage\/.*\Z/
+
+  validates :title, presence: {message: "Please include a title!"}
+
+  validates :content, presence: {message: "Please include some content!"}
+
+  validates :rating, presence: {message: "Please include a rating!"}
+
+  validates :date_seen, presence: {message: "Please include a valid date!"}
+
+  validates :date_seen, numericality: {less_than_or_equal_to: Time.now, message: "Date must be today or before today!"}
 end
