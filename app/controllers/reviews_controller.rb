@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def mine
+    @reviews = Review.where(user_id: current_user.id)
+  end
+
   def index
     @reviews = Review.where(station_id: params[:station_id])
   end
