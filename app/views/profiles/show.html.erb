@@ -1,13 +1,20 @@
-<% if session[:id] && current_user.id == @profile.id  %>  
-  <div class = "col-xs-10">
+<% if user_signed_in? && current_user.id == @profile.user_id  %>  
 
+<div class="row">
+  <div class="col-xs-4">
     <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
       <%= f.file_field :avatar %>
       <%= f.submit :Update%>
     <% end %>
-    <br>
-    <%= image_tag @profile.avatar.url(:medium)%>
+  </div>
+  <div class="col-xs-4">
+    <%= image_tag @profile.avatar.url(:medium), class: "profile-avatar" %>
+  </div>
+</div>
+
     <br><br>
+
+  <div class = "col-xs-10">
     <ul>
       <li class = "form-control"><%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your username" %></li>
 

@@ -16,20 +16,53 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-.date {
-  background-color: #f00;
-  color: #fff;
-  margin: auto;
-  font-size: 24px;
+.col-xs-4 h2, h3 {
+  margin-left: 2vw;
 }
 
-.title {
-  background-color: #00f;
-  color: #fff;
-  margin: auto;
-  font-size: 24px;
+.click-row {
+  margin: 1vw;
+  background-color: #006b3a;
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 5px;
+  height: 7vh;
+
+
+  .date {
+    background-color: #f9b922;
+    color: #fff;
+    margin: auto;
+    padding-top: 2vh;
+    font-size: 2em; 
+    height: 100%;
+  }
+
+  .title {
+    background-color: #006b3a;
+    color: #fff;
+    margin: auto;
+    padding-top: 2vh;
+    font-size: 2em;
+  }
+
+  .avatar {
+    padding: 5px;
+
+    img {
+      border: 1px solid black;
+    }
+  }
 }
+
+
+.edit_profile {
+  margin-left: 2vw;
+}
+
+#map-container, #map {
+  width: 100vw;
+  height: 100vh;
 
 .rev-3, .rev-2 {
   border-top: 1px solid black;
