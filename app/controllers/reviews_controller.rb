@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @username = Profile.find_by(user_id: @review.user_id).username
+    @profile = Profile.find_by(user_id: @review.user_id).id
   end
 
   def new
@@ -44,7 +45,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(review_params)
-        format.html { redirect_to(@review, :alert => 'Review updated') }
+        format.html { redirect_to "/stations/#{@review.station_id}/reviews/#{@review.id}", :alert => 'Review updated' }
         format.json { respond_with_bip(@review) }
       else
         format.html { render :action => "show" }

@@ -1,6 +1,6 @@
 <% if user_signed_in? && current_user.id == @review.user_id %>
 
-<div class="row">
+<div class="row edit-review ">
   <div class="col-xs-2">Title:</div>
     <div class = "form-control">
       <div class= "col-xs-6">
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">Date Seen:</div>
     <div class = "form-control">
      <div class= "col-xs-6">
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">Rating:</div>
     <div class = "form-control">
       <div class= "col-xs-6">
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">Content:</div>
     <div class = "form-control">
       <div class= "col-xs-6">    
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">Artist Name:</div>
     <div class = "form-control">
       <div class= "col-xs-6">
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">Instruments:</div>
     <div class = "form-control">
       <div class= "col-xs-6">
@@ -54,7 +54,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-2">More Info:</div>
     <div class = "form-control">
      <div class= "col-xs-6">
@@ -63,9 +63,9 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row edit-review">
   <div class="col-xs-4"></div>
-    <%= bootstrap_form_for @review, :url => station_review_path(@review.id), :html => { :multipart => true} do |f| %>
+    <%= bootstrap_form_for @review, :url => station_review_path(@review.station_id, @review), :html => { :multipart => true} do |f| %>
     <%= f.file_field :avatar %>
     <%= f.submit :update %>
     <% end %>
@@ -85,7 +85,7 @@
 
   <div class="row">
     <div class="col-xs-3 rev-3">Username:</div>
-    <div class="col-xs-4 rev-4"><%= @username %></div>
+    <div class="col-xs-4 rev-4"><%= link_to(@username, profile_path(@profile), method: :get ) %></div>
     <div class="col-xs-2 rev-2">Date Seen:</div>
     <div class="col-xs-3 rev-3 show-date"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
   </div>
