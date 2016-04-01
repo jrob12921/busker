@@ -29,4 +29,9 @@ $(document).ready(function(){
     }
   })
 
+  $("#pick_file").change(function() {
+    $("#update_file").attr("style","")
+  })
+
+
 })

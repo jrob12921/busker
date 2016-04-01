@@ -66,8 +66,8 @@
 <div class="row edit-review">
   <div class="col-xs-4">
     <%= bootstrap_form_for @review, :url => station_review_path(@review.station_id, @review), :html => { :multipart => true} do |f| %>
-    <%= f.file_field :avatar %>
-    <%= f.submit :update %>
+    <%= f.file_field :avatar, id: "pick_file" %>
+    <%= f.submit :update, id: "update_file", style: "display:none" %>
     <% end %>
   </div>
   <div class="col-xs-4">
