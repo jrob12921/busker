@@ -1,6 +1,6 @@
 <% if user_signed_in? && current_user.id == @profile.user_id  %>  
 
-<div class="row">
+<div class="row edit-profile">
   <div class="col-xs-4">
     <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
       <%= f.file_field :avatar %>
@@ -14,18 +14,49 @@
 
     <br><br>
 
-  <div class = "col-xs-10">
-    <ul>
-      <li class = "form-control"><%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your username" %></li>
+  <div class = "row edit-profile">
+    <div class="col-xs-2">Username: </div>
+      <div class = "form-control">
+        <div class= "col-xs-6"> 
+          <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+      </div>
+  </div>
 
-      <li class = "form-control"><%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your first name" %></li>
+  <div class="row edit-profile">
+    <div class="col-xs-2">First name: </div>
+      <div class="form-control"> 
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+      </div>
+  </div>
 
-      <li class="form-control"><%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your last name" %></li>
+  <div class="row edit-profile">
+    <div class="col-xs-2">Last name: </div>
+      <div class="form-control">
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+      </div>
+  </div>
 
-      <li class="form-control"><%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your borough" %></li>
+  <div class="row edit-profile">
+    <div class="col-xs-2">Borough: </div>
+      <div class="form-control">
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+      </div>
+  </div>
 
-      <li class="form-control"><%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input, :place_holder => "Add your neighborhood" %></li>
-    </ul>
+  <div class="row edit-profile">
+    <div class="col-xs-2">Neighborhood: </div>
+      <div class="form-control">
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+      </div>
   </div>
 
 <% else %>

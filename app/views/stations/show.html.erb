@@ -1,7 +1,13 @@
 <div class="row"> 
   <div class="col-xs-4">
-    <h2><%= @station.name %></h2>
-    <h2><%= @station.line %></h2>
+    <h2>Station Name:</h2> 
+    <h3><%= @station.name %></h3>
+  </div>
+  <div class="col-xs-4">
+    <h2>Train Line(s):</h2>
+    <h3><%= @station.line %></h3>
+  </div>
+  <div class="col-xs-4">
     <h3><%= link_to("New Review", new_station_review_path(@station), method: :get) %></h3>
   </div>
 </div>
