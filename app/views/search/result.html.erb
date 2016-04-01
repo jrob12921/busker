@@ -1,0 +1,83 @@
+
+<div id="search_results">
+
+  <% if params[:query] %>
+    
+    <h2>Results:</h2>
+
+    <div id="user_results">
+      <h3>From Users:</h3>
+        <ul>
+
+          <li>Username:</li>
+            <ol>
+              <% @profiles_u.each do |u| %>
+                <li><%= u.username %></li>
+              <% end %>
+            </ol><br>
+
+            <li>First Name:</li>
+            <ol>
+              <% @profiles_f.each do |u| %>
+                <li><%= u.fname %></li>
+              <% end %>
+            </ol><br>
+
+            <li>Last Name:</li>
+            <ol>
+              <% @profiles_l.each do |u| %>
+                <li><%= u.lname %></li>
+              <% end %>
+            </ol>
+
+        </ul>
+    </div>
+
+    <div id="review_results">
+      <h3>From Reviews:</h3>
+      
+      <ul>
+        
+        <li>Review Title:</li>
+        <ol>
+          <% @review_t.each do |r| %>
+            <li><%= r.title %></li>
+          <% end %>
+        </ol>
+
+        <li>Review Title:</li>
+        <ol>
+          <% @review_t.each do |r| %>
+            <li><%= r.title %></li>
+          <% end %>
+        </ol>
+
+        <!-- Need artist name/instruments/moreinfo -->
+
+      </ul>
+    </div>
+
+     <div id="station">
+      <h3>From Stations:</h3>
+      
+      <ul>
+        
+        <li>Station Name:</li>
+        <ol>
+          <% @station_n.each do |s| %>
+            <li><%= s.name %></li>
+          <% end %>
+        </ol>
+
+        <li>Station Line:</li>
+        <ol>
+          <% @station_l.each do |s| %>
+            <li><%= s.line %></li>
+          <% end %>
+        </ol>
+
+      </ul>
+    </div>
+
+  <% end %>
+</div>

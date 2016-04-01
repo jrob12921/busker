@@ -19,4 +19,12 @@ class Review < ActiveRecord::Base
 
   validates :date_seen, presence: {message: "Please include a valid date!"}
 
+  def self.search_t(search)
+    where("title LIKE ?", "%#{search}%")
+  end
+
+   def self.search_c(search)
+    where("content LIKE ?", "%#{search}%")
+  end
+
 end

@@ -35,12 +35,15 @@
         </ul>
 
         <ul class ="nav navbar-nav navbar-right">
-  	      <div class="input-group">
-  			    <input type="text" class="form-control" placeholder="Search for...">
-  			   <span class="input-group-btn">
-  			     <button class="btn btn-default" type="button">Go!</button>
-  			   </span>
-  			  </div>
+  	      
+        <!-- <div class="input-group">        -->
+          <%= bootstrap_form_tag url: "/results" do |f| %>
+            <%= f.text_field(:query, value: "Search for...", class: "form-control") %>
+            <span class="input-group-btn">
+              <%= f.submit("Go!", class: "btn btn-default search") %>
+            </span>
+          <% end %>
+
         </ul>
       </div>
 
@@ -59,12 +62,14 @@
         </ul>
 
         <ul class ="nav navbar-nav navbar-right">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-           <span class="input-group-btn">
-             <button class="btn btn-default" type="button">Go!</button>
-           </span>
-          </div>
+
+          <%= bootstrap_form_tag url: "/results" do |f| %>
+            <%= f.text_field(:query, value: "Search for...", class: "form-control") %>
+            <span class="input-group-btn">
+              <%= f.submit("Go!", class: "btn btn-default search") %>
+            </span>
+          <% end %>
+
         </ul>
       </div>
     <% end %>
