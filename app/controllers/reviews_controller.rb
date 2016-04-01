@@ -22,6 +22,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @username = Profile.find_by(user_id: @review.user_id).username
     @profile = Profile.find_by(user_id: @review.user_id).id
+
+
   end
 
   def new
@@ -48,7 +50,6 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
 
     respond_to do |format|
       if @review.update_attributes(review_params)
@@ -62,8 +63,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:station_id])
+    @review = Review.find(params[:id])
     @review.destroy
+    redirect_to my_reviews_path
   end
 
   private

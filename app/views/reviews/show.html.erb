@@ -1,85 +1,86 @@
 <% if user_signed_in? && current_user.id == @review.user_id %>
 
 <div class="row edit-review ">
-  <div class="col-xs-2">Title:</div>
-    <div class = "form-control">
-      <div class= "col-xs-8">
+  <div class="col-xs-4">Title:</div>
+    
+      <div class= "col-xs-6">
         <%= best_in_place @review, :title, :path => station_review_path, :data => {:review_title => @review.title}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+  
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">Date Seen:</div>
-    <div class = "form-control">
-     <div class= "col-xs-8">
+  <div class="col-xs-4">Date Seen:</div>
+    
+     <div class= "col-xs-6">
       <%= best_in_place @review, :date_seen, :path => station_review_path, :data => {:review_date_seen => @review.date_seen}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">Rating:</div>
-    <div class = "form-control">
-      <div class= "col-xs-8">
+  <div class="col-xs-4">Rating:</div>
+    
+      <div class= "col-xs-6">
         <%= best_in_place @review, :rating, :path => station_review_path, :data => {:review_rating => @review.rating}, :classes => 'highlight_on_success', :as => :input %>
       </div>
-  </div>
+  
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">Content:</div>
-    <div class = "form-control">
-      <div class= "col-xs-8">    
-        <%= best_in_place @review, :content, :path => station_review_path, :data => {:review_content => @review.content}, :classes => 'highlight_on_success', :as => :input %>
+  <div class="col-xs-4">Content:</div>
+    
+      <div class= "col-xs-6">    
+        <%= best_in_place @review, :content, :display_with => :simple_format, :path => station_review_path, :data => {:review_content => @review.content}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+  
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">Artist Name:</div>
-    <div class = "form-control">
-      <div class= "col-xs-8">
+  <div class="col-xs-4">Artist Name:</div>
+    
+      <div class= "col-xs-6">
         <%= best_in_place @review, :artist_name, :path => station_review_path, :data => {:review_artist_name => @review.artist_name}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+ 
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">Instruments:</div>
-    <div class = "form-control">
-      <div class= "col-xs-8">
+  <div class="col-xs-4">Instruments:</div>
+    
+      <div class= "col-xs-6">
         <%= best_in_place @review, :instruments, :path => station_review_path, :data => {:review_instruments => @review.instruments}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+  
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-2">More Info:</div>
-    <div class = "form-control">
-     <div class= "col-xs-8">
+  <div class="col-xs-4">More Info:</div>
+    
+     <div class= "col-xs-6">
       <%= best_in_place @review, :add_info, :path => station_review_path, :data => {:review_add_info => @review.add_info}, :classes => 'highlight_on_success', :as => :input %>
     </div>
-  </div>
+  
 </div>
 
 <div class="row edit-review">
-  <div class="col-xs-4">
+  <div class="col-xs-3">
     <%= bootstrap_form_for @review, :url => station_review_path(@review.station_id, @review), :html => { :multipart => true} do |f| %>
     <%= f.file_field :avatar, id: "pick_file" %>
     <%= f.submit :update, id: "update_file", style: "display:none" %>
     <% end %>
   </div>
-  <div class="col-xs-4">
-    <%= image_tag @review.avatar.url(:medium)%>
+</div>
+<br>
+<div class="row edit-review">
+    <%= image_tag @review.avatar.url(:medium), class: "edit-review" %>
+</div>
+<br>
+<div class="row edit-review">
+  <div class="col-xs-12">
+    <%= link_to("DELETE REVIEW", station_review_path(@review.station_id, @review), method: :delete) %>
   </div>
 </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <%= link_to("DELETE REVIEW", station_review_path(@review.station_id, @review), method: :delete) %>
-    </div>
-  </div>
 
 <% else %>
 
