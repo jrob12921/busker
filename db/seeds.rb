@@ -535,6 +535,8 @@ end
 
 y = Station.first.id
 
+Review.destroy_all
+
 reviews = [
   [x, y, "OMG This Guy is Amazing!", "I loved listening to he guy. He is so fantastic. I recommend him to everyone.", 1, DateTime.new(2016, 3, 25), "IDK", "guitar","nice hair"],
   [x, y + 1, "Damn, this guy sucks!", "This guy made me cry. His songs are so ****ing sad", 0, DateTime.new(2016, 2, 27),"Idiot", "acoustic", "nice leather jacket"],

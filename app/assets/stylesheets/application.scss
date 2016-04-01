@@ -11,8 +11,10 @@
  * file per style scope.
  *
  *= require rails_bootstrap_forms
+ *= require font-awesome
  */
 
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -106,3 +108,16 @@
 textarea { 
   resize: none; 
 }
+
+.vote {
+  display: inline;
+}
+
+.radio {
+  display: none;
+}
+
+.fa {
+  padding: 10px;
+}
+
