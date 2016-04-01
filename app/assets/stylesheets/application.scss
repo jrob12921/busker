@@ -18,6 +18,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.review-header {
+  margin-left: 5vw;
+}
+
+li {
+  list-style: none;
+}
+
 .col-xs-4 h2, h3 {
   margin-left: 2vw;
 }
@@ -37,7 +45,7 @@
     color: #fff;
     height: 100%;
     margin: auto 0;
-    padding: 3vw 4vw 0vw 1vw;
+    padding: 6vw 4vw 0vw 1vw;
     width: 25%;
     text-shadow: 1px 1px 1px black;
   }
@@ -47,8 +55,7 @@
     color: #fff;
     height: 100%;
     width: 40%;
-    padding: 0;
-    padding-top: 6vw;
+    padding: 6vw 0;
     padding-left: 2vw;
     text-shadow: 1px 1px 1px black;
   }

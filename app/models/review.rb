@@ -11,7 +11,7 @@ class Review < ActiveRecord::Base
   validates_attachment_content_type :avatar, 
     :content_type => /\Aimage\/.*\Z/
 
-  validates :title, presence: {message: "Please include a title!"}
+  validates :title, presence: {message: "Please include a title!"}, length: { maximum: 16 }
 
   validates :content, presence: {message: "Please include some content!"}
 
