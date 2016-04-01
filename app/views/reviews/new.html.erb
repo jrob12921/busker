@@ -23,12 +23,12 @@
       <div><strong>*Rating:</strong></div>
 
       <div class="col-xs-6">
-        <%= r.radio_button :rating, "down", checked: :rating == false, class: "radio" %>
+        <%= r.radio_button :rating, false, checked: false, class: "radio" %>
         <i class="fa fa-5x fa-thumbs-o-down" id="down"></i>
       </div>
 
       <div class="col-xs-6">
-        <%= r.radio_button :rating, "up", checked: :rating == true, class: "radio" %>
+        <%= r.radio_button :rating, true, checked: false, class: "radio" %>
         <i class="fa fa-5x fa-thumbs-o-up" id="up"></i>
       </div><br><br><br>
 
