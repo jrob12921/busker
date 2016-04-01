@@ -20,9 +20,17 @@
 
       <%= r.text_area :content, label: "*Content", rows: 4 %>
 
-      <%= r.label "*Rating" %>
-      <%= r.radio_button :rating, true %>
-      <%= r.radio_button :rating, false %>
+      <div><strong>*Rating:</strong></div>
+
+      <div class="col-xs-6">
+        <%= r.radio_button :rating, "down", checked: :rating == false, class: "radio" %>
+        <i class="fa fa-5x fa-thumbs-o-down" id="down"></i>
+      </div>
+
+      <div class="col-xs-6">
+        <%= r.radio_button :rating, "up", checked: :rating == true, class: "radio" %>
+        <i class="fa fa-5x fa-thumbs-o-up" id="up"></i>
+      </div><br><br><br>
 
       <%= r.date_field :date_seen, :value => Time.now.strftime('%Y-%m-%d'), min: Date.new(1904, 10, 27), max: Date.today, label: "*Date" %>
 
