@@ -1,4 +1,9 @@
 <% if user_signed_in? && current_user.id == @profile.user_id  %>  
+  <div class="row">
+    <div class="col-xs-10">
+      <%= link_to("My Reviews", my_reviews_path, method: :get) %>
+    </div>
+  </div>
 
 <div class="row edit-profile">
   <div class="col-xs-4">
@@ -59,20 +64,31 @@
       </div>
   </div>
 
+
 <% else %>
   <div class="col-xs-10">
     
     <ul>
    
-      <li><%= @profile.username %></li>
-      <li><%= @profile.fname %></li>
-      <li><%= @profile.lname %></li>
-      <li><%= @profile.borough %></li>
-      <li><%= @profile.neighborhood %></li>
-      <li><%= image_tag @profile.avatar.url(:medium) %></li>
-      
+      <li>Username: <%= @profile.username %> <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></li>
+      <li>Name: <%= @profile.full_name %></li>
+      <li>Borough: <%= @profile.borough %></li>
+      <li>Neighborhood: <%= @profile.neighborhood %></li>
     </ul>
     
   </div>
+
+  <div class="row">
+    
+    <div class="col-xs-4">
+      <!-- Empty Div for spacing -->
+    </div>
+  
+    <div class="col-xs-4">
+      <%= image_tag @profile.avatar.url(:medium) %>
+    </div>
+
+  </div>
+
 <% end %>
   

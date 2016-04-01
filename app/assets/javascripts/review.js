@@ -8,12 +8,12 @@ $(document).ready(function(){
 
   $("#down").click(function(){
 
-    if(!$("#review_rating_down")[0].checked){
+    if(!$("#review_rating_false")[0].checked){
 
-      $("#review_rating_down")[0].checked = true
+      $("#review_rating_false")[0].checked = true
       $("#down").attr("class","fa fa-5x fa-thumbs-down")
 
-      $("#review_rating_up")[0].checked = false
+      $("#review_rating_true")[0].checked = false
       $("#up").attr("class","fa fa-5x fa-thumbs-o-up")
 
       // console.log($  ("#review_rating_up")[0])
@@ -24,12 +24,12 @@ $(document).ready(function(){
 
   $("#up").click(function(){
 
-    if(!$("#review_rating_up")[0].checked){
+    if(!$("#review_rating_true")[0].checked){
 
-      $("#review_rating_up")[0].checked = true
+      $("#review_rating_true")[0].checked = true
       $("#up").attr("class","fa fa-5x fa-thumbs-up")
 
-      $("#review_rating_down")[0].checked = false
+      $("#review_rating_false")[0].checked = false
       $("#down").attr("class","fa fa-5x fa-thumbs-o-down")
 
       // console.log($("#review_rating_up")[0])
