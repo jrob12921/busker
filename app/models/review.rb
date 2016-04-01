@@ -15,8 +15,16 @@ class Review < ActiveRecord::Base
 
   validates :content, presence: {message: "Please include some content!"}
 
-  validates :rating, presence: {message: "Please include a rating!"}
+  validates :rating, :presence => { :if => 'rating.nil?' }
 
   validates :date_seen, presence: {message: "Please include a valid date!"}
+
+  def self.search_t(search)
+    where("title LIKE ?", "%#{search}%")
+  end
+
+   def self.search_c(search)
+    where("content LIKE ?", "%#{search}%")
+  end
 
 end

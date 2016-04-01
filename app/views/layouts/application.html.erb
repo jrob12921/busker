@@ -20,54 +20,47 @@
       <a class="navbar-brand" href="/">Buddha Busker</a>
     </div>
 
-    <!-- If User is Logged in -->
-    <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="buskerNav">
         <ul class="nav navbar-nav">
-  				<li><%= link_to "Stations", root_path %></li>
-          <li><%= link_to "Profile", profile_path(current_user.profile.id) %></li>
+          <li><%= link_to "Stations", root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Profile", profile_path(current_user.profile.id) %></li>
+            <% end %>
           <li><%= link_to "Reviews", my_reviews_path %></li>
           <li><%= link_to "About",   '#' %></li> 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          
+            <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <% end %>
         </ul>
 
         <ul class ="nav navbar-nav navbar-right">
-  	      <div class="input-group">
-  			    <input type="text" class="form-control" placeholder="Search for...">
-  			   <span class="input-group-btn">
-  			     <button class="btn btn-default" type="button">Go!</button>
-  			   </span>
-  			  </div>
+  	     <form role="form" action="/results" method="post" id="search_form">  
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for..." name="query">
+              <span class="input-group-btn">
+
+                <script type="text/javascript">
+                  function search_submit() {
+                    console.log("mofo")
+                    $("#search_form").submit()  
+                  }
+                </script>
+                
+                <button class="btn btn-default" id="search_button" type="button" onclick="search_submit()">Go!</button>
+              </span>
+            </div>
+          </form>  
         </ul>
+      
       </div>
 
-    <% else %>
-    <!-- If User is logged out -->
-       <div class="collapse navbar-collapse" id="buskerNav">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Stations", root_path %></li>
-          <li><%= link_to "Reviews", reviews_path %></li>
-          <li><%= link_to "About",   '#' %></li> 
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-
-        <ul class ="nav navbar-nav navbar-right">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-           <span class="input-group-btn">
-             <button class="btn btn-default" type="button">Go!</button>
-           </span>
-          </div>
-        </ul>
-      </div>
-    <% end %>
   </div>
 </nav>
 

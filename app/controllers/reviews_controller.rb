@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
 
   def other
     @user = User.find(params[:id])
-    # @profile = Profile.find_by(user_id: @user.id)
     @reviews = Review.where(user_id: @user.id)
   end
 

@@ -11,4 +11,21 @@ class Profile < ActiveRecord::Base
   def full_name
     "#{self.fname} #{self.lname}"
   end
+
+  def self.search_u(search)
+    where("username LIKE ?", "%#{search}%")
+  end
+
+   def self.search_e(search)
+    where("email LIKE ?", "%#{search}%")
+  end
+
+   def self.search_f(search)
+    where("fname LIKE ?", "%#{search}%")
+  end
+
+   def self.search_l(search)
+    where("lname LIKE ?", "%#{search}%")
+  end
+
 end
