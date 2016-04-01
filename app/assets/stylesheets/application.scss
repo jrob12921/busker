@@ -23,36 +23,46 @@
 }
 
 .click-row {
-  margin: 1vw;
-  background-color: #006b3a;
-  width: 100%;
+  margin: 1vw auto;
+  background-color: #0b560b;
+  width: 90%;
   border: 3px solid black;
   border-radius: 5px;
-  height: 7vh;
+  height: 20vw;
+
 
 
   .date {
-    background-color: #f9b922;
+    background-color: #db9a02;
     color: #fff;
-    margin: auto;
-    padding-top: 2vh;
-    font-size: 2em; 
     height: 100%;
+    margin: auto 0;
+    padding: 3vw 4vw 0vw 1vw;
+    width: 25%;
+    text-shadow: 1px 1px 1px black;
   }
 
   .title {
-    background-color: #006b3a;
+    background-color: #0b560b;
     color: #fff;
-    margin: auto;
-    padding-top: 2vh;
-    font-size: 2em;
+    height: 100%;
+    width: 40%;
+    padding: 0;
+    padding-top: 6vw;
+    padding-left: 2vw;
+    text-shadow: 1px 1px 1px black;
   }
 
   .avatar {
-    padding: 5px;
+    height: 100%;
+    width: 35%;
 
     img {
       border: 1px solid black;
+      height: 90%;
+      width: 100%;
+      margin-top: 1vw;
+
     }
   }
 }

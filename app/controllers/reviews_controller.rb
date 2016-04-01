@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def mine
     @reviews = Review.where(user_id: current_user.id)
+    @username = Profile.find_by(user_id: current_user.id).username
   end
 
   def other
