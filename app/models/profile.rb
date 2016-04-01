@@ -7,4 +7,8 @@ class Profile < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, 
     :content_type => /\Aimage\/.*\Z/
+
+  def full_name
+    "#{self.fname} #{self.lname}"
+  end
 end

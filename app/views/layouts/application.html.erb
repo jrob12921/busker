@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="buskerNav">
         <ul class="nav navbar-nav">
   				<li><%= link_to "Stations", root_path %></li>
-          <li><%= link_to "Profile", profile_path(current_user) %></li>
+          <li><%= link_to "Profile", profile_path(current_user.profile.id) %></li>
           <li><%= link_to "Reviews", my_reviews_path %></li>
           <li><%= link_to "About",   '#' %></li> 
         </ul>
