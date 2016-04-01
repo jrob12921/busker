@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "my_reviews" => "reviews#mine"
 
   get "reviews" => "reviews#all"
+
+  get "user_reviews/:id" => "reviews#other"
   # resources :reviews
 
   # The priority is based upon order of creation: first created -> highest priority.

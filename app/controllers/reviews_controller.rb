@@ -8,6 +8,13 @@ class ReviewsController < ApplicationController
     @username = Profile.find_by(user_id: current_user.id).username
   end
 
+  def other
+    @user = User.find(params[:id])
+    # @profile = Profile.find_by(user_id: @user.id)
+    @reviews = Review.where(user_id: @user.id)
+  end
+
+
   def index
     @reviews = Review.where(station_id: params[:station_id])
   end
