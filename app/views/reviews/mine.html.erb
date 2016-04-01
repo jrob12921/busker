@@ -1,7 +1,12 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h2><%= @username %> Reviews </h2>
+  </div>
+</div>
 <% @reviews.reverse_each do |review| %>
 
    <div class="row click-row" data-href="/stations/<%= review.station_id %>/reviews/<%= review.id %>">
-    <div class="col-xs-2 date"><%= review.date_seen %></div>
+    <div class="col-xs-2 date"><%= review.date_seen.strftime("%-m/%-d/%Y") %></div>
     <div class="col-xs-8 title"><%= review.title %></div>
     <div class="col-xs-2 avatar"><%= image_tag(review.avatar.url(:thumb)) %></div>
   </div>
