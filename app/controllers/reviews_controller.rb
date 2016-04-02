@@ -13,6 +13,32 @@ class ReviewsController < ApplicationController
     @reviews = Review.where(user_id: @user.id)
   end
 
+  def rating_up
+    @review = Review.find(params[:id])
+
+    @review.rating = true
+    @review.save
+
+    # respond_to do |format|
+    #   format.js
+    # end
+
+  end
+
+  def rating_down
+    @review = Review.find(params[:id])
+
+    @review.rating = false
+    @review.save
+
+    # respond_to do |format|
+    #   format.js
+    # end
+
+  end
+
+
+
 
   def index
     @reviews = Review.where(station_id: params[:station_id])

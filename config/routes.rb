@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   get "user_reviews/:id" => "reviews#other"
 
   post "results" => "search#result"
-  # resources :reviews
+
+  get "rating_up/:id" => "reviews#rating_up"
+
+  get "rating_down/:id" => "reviews#rating_down"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

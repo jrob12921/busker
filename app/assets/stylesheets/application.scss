@@ -138,3 +138,8 @@ textarea {
   padding: 10px;
 }
 
+.rating {
+  /*Important used to override bootstrap CSS*/
+  color: black !important;
+}
+

@@ -4,7 +4,7 @@
   <div class="col-xs-4">Title:</div>
     
       <div class= "col-xs-6">
-        <%= best_in_place @review, :title, :path => station_review_path, :data => {:review_title => @review.title}, :classes => 'highlight_on_success', :as => :input %>
+        <%= best_in_place @review, :title, :url => station_review_path, :data => {:review_title => @review.title}, :class => 'highlight_on_success', :as => :input %>
     </div>
   
 </div>
@@ -13,17 +13,30 @@
   <div class="col-xs-4">Date Seen:</div>
     
      <div class= "col-xs-6">
-      <%= best_in_place @review, :date_seen, :path => station_review_path, :data => {:review_date_seen => @review.date_seen}, :classes => 'highlight_on_success', :as => :input %>
+      <%= best_in_place @review, :date_seen, :url => station_review_path, :data => {:review_date_seen => @review.date_seen.strftime("%-m/%-d/%Y")}, :class => 'highlight_on_success', :as => :input %>
     </div>
 
 </div>
 
 <div class="row edit-review">
   <div class="col-xs-4">Rating:</div>
-    
-      <div class= "col-xs-6">
-        <%= best_in_place @review, :rating, :path => station_review_path, :data => {:review_rating => @review.rating}, :classes => 'highlight_on_success', :as => :input %>
+    <%= bootstrap_form_for(@review, url: station_reviews_path, method: :post) do |r| %>
+      
+      <div class="col-xs-2">
+        <a href="/rating_down/<%= @review.id %>" data-remote="true" data-rating="false" class="rating">
+          <%= r.radio_button :rating, false, class: "radio" %>
+          <i class="fa fa-5x fa-thumbs-o-down" id="down"></i>
+        </a>
       </div>
+
+      <div class="col-xs-2">
+        <a href="/rating_up/<%= @review.id %>" data-remote="true" data-rating="true" class="rating">
+          <%= r.radio_button :rating, true, class: "radio" %>
+          <i class="fa fa-5x fa-thumbs-o-up" id="up"></i>
+        </a>
+      </div>
+      
+    <% end %>
   
 </div>
 
@@ -31,7 +44,7 @@
   <div class="col-xs-4">Content:</div>
     
       <div class= "col-xs-6">    
-        <%= best_in_place @review, :content, :display_with => :simple_format, :path => station_review_path, :data => {:review_content => @review.content}, :classes => 'highlight_on_success', :as => :input %>
+        <%= best_in_place @review, :content, :display_with => :simple_format, :url => station_review_path, :data => {:review_content => @review.content}, :class => 'highlight_on_success', :as => :input %>
     </div>
   
 </div>
@@ -40,7 +53,7 @@
   <div class="col-xs-4">Artist Name:</div>
     
       <div class= "col-xs-6">
-        <%= best_in_place @review, :artist_name, :path => station_review_path, :data => {:review_artist_name => @review.artist_name}, :classes => 'highlight_on_success', :as => :input %>
+        <%= best_in_place @review, :artist_name, :url => station_review_path, :data => {:review_artist_name => @review.artist_name}, :class => 'highlight_on_success', :as => :input %>
     </div>
  
 </div>
@@ -49,7 +62,7 @@
   <div class="col-xs-4">Instruments:</div>
     
       <div class= "col-xs-6">
-        <%= best_in_place @review, :instruments, :path => station_review_path, :data => {:review_instruments => @review.instruments}, :classes => 'highlight_on_success', :as => :input %>
+        <%= best_in_place @review, :instruments, :url => station_review_path, :data => {:review_instruments => @review.instruments}, :class => 'highlight_on_success', :as => :input %>
     </div>
   
 </div>
@@ -58,7 +71,7 @@
   <div class="col-xs-4">More Info:</div>
     
      <div class= "col-xs-6">
-      <%= best_in_place @review, :add_info, :path => station_review_path, :data => {:review_add_info => @review.add_info}, :classes => 'highlight_on_success', :as => :input %>
+      <%= best_in_place @review, :add_info, :url => station_review_path, :data => {:review_add_info => @review.add_info}, :class => 'highlight_on_success', :as => :input %>
     </div>
   
 </div>
