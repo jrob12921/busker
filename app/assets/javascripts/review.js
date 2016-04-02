@@ -37,8 +37,8 @@ $(document).ready(function(){
   }
 
   //this change function is to make the update button appear when a user selects a new avatar on the update review page
-  $("#pick_file").change(function() {
-    $("#update_file").attr("style","")
+  $(".pick_file").change(function() {
+    $(".update_file").attr("style","")
   })
 
 

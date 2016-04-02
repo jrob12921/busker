@@ -8,8 +8,8 @@
 <div class="row edit-profile">
   <div class="col-xs-4">
     <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
-      <%= f.file_field :avatar %>
-      <%= f.submit :Update%>
+    <%= f.file_field :avatar, class: "pick_file" %>
+    <%= f.submit :Update, class: "update_file", style: "display:none" %>
     <% end %>
   </div>
   <div class="col-xs-4">

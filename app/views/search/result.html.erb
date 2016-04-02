@@ -6,77 +6,120 @@
     <h2>Results:</h2>
 
     <div id="user_results">
-      <h3>From Users:</h3>
+
+      <% if !(@profile_presence == 0) %>
+        <h3>From Users:</h3>
         <ul>
 
-          <li>Username:</li>
+          <% if !@profiles_u.blank? %>
+            <li>Username:</li>
             <ol>
               <% @profiles_u.each do |u| %>
                 <li><%= u.username %></li>
               <% end %>
             </ol><br>
+          <% else %>
+            <li>No Username Matches!</li>
+          <% end %>
 
+          <% if !@profiles_f.blank? %>
             <li>First Name:</li>
             <ol>
               <% @profiles_f.each do |u| %>
                 <li><%= u.fname %></li>
               <% end %>
             </ol><br>
+          <% else %>
+            <br>
+            <li>No First Name Matches!</li>            
+          <% end %>
 
+          <% if !@profiles_l.blank? %>
             <li>Last Name:</li>
             <ol>
               <% @profiles_l.each do |u| %>
                 <li><%= u.lname %></li>
               <% end %>
             </ol>
+          <% else %>
+            <br>
+            <li>No Last Name Matches!</li>
+          <% end %>
 
         </ul>
+      <% else %>
+        <h3>No Profile Matches!</h3>
+      <% end %>
     </div>
 
     <div id="review_results">
-      <h3>From Reviews:</h3>
-      
-      <ul>
-        
-        <li>Review Title:</li>
-        <ol>
-          <% @review_t.each do |r| %>
-            <li><%= r.title %></li>
+      <% if !(@review_presence == 0) %>
+        <h3>From Reviews:</h3>
+        <ul>
+          
+          <% if !@reviews_t.blank? %>
+            <li>Review Title:</li>
+            <ol>
+              <% @reviews_t.each do |r| %>
+                <li><%= r.title %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <li>No Title Matches!</li>
           <% end %>
-        </ol>
 
-        <li>Review Title:</li>
-        <ol>
-          <% @review_t.each do |r| %>
-            <li><%= r.title %></li>
+          <% if !@reviews_c.blank? %>
+            <li>Review Content:</li>
+            <ol>
+              <% @reviews_c.each do |r| %>
+                <li><%= r.content %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <br>
+            <li>No Content Matches!</li>
           <% end %>
-        </ol>
 
-        <!-- Need artist name/instruments/moreinfo -->
+          <!-- Need artist name/instruments/moreinfo -->
 
-      </ul>
+        </ul>
+      <% else %>
+        <h3>No Review Matches!</h3>
+      <% end %>
     </div>
 
-     <div id="station">
-      <h3>From Stations:</h3>
-      
-      <ul>
-        
-        <li>Station Name:</li>
-        <ol>
-          <% @station_n.each do |s| %>
-            <li><%= s.name %></li>
+    <div id="station">
+      <% if !(@station_presence == 0) %>
+        <h3>From Stations:</h3>
+        <ul>
+          
+          <% if !@station_n.blank? %>
+            <li>Station Name:</li>
+            <ol>
+              <% @station_n.each do |s| %>
+                <li><%= s.name %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <li>No Name Matches!</li>
           <% end %>
-        </ol>
 
-        <li>Station Line:</li>
-        <ol>
-          <% @station_l.each do |s| %>
-            <li><%= s.line %></li>
+          <% if !@station_l.blank? %>
+            <li>Station Line:</li>
+            <ol>
+              <% @station_l.each do |s| %>
+                <li><%= s.line %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <br>
+            <li>No Line Matches!</li>
           <% end %>
-        </ol>
 
-      </ul>
+        </ul>
+      <% else %>
+        <h3>No Station Matches!</h3>
+      <% end %>
     </div>
 
   <% end %>

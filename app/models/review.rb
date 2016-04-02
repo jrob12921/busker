@@ -27,5 +27,4 @@ class Review < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
-
 end
