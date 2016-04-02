@@ -22,7 +22,7 @@
   margin-left: 5vw;
 }
 
-li {
+ul > li {
   list-style: none;
 }
 
@@ -136,5 +136,10 @@ textarea {
 
 .fa {
   padding: 10px;
+}
+
+.rating {
+  /*Important used to override bootstrap CSS*/
+  color: black !important;
 }
 

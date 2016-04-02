@@ -6,77 +6,120 @@
     <h2>Results:</h2>
 
     <div id="user_results">
-      <h3>From Users:</h3>
+
+      <% if !(@profile_presence == 0) %>
+        <h3>From Users:</h3>
         <ul>
 
-          <li>Username:</li>
+          <% if !@profiles_u.blank? %>
+            <li>By Username:</li>
             <ol>
               <% @profiles_u.each do |u| %>
-                <li><%= u.username %></li>
+                <li><%= link_to(u.username, profile_path(u.id), method: :get) %></li>
               <% end %>
             </ol><br>
+          <% else %>
+            <li>No Username Matches!</li>
+          <% end %>
 
-            <li>First Name:</li>
+          <% if !@profiles_f.blank? %>
+            <li>By First Name:</li>
             <ol>
               <% @profiles_f.each do |u| %>
-                <li><%= u.fname %></li>
+                <li><%= link_to(u.fname, profile_path(u.id), method: :get) %></li>
               <% end %>
             </ol><br>
+          <% else %>
+            <br>
+            <li>No First Name Matches!</li>            
+          <% end %>
 
-            <li>Last Name:</li>
+          <% if !@profiles_l.blank? %>
+            <li>By Last Name:</li>
             <ol>
               <% @profiles_l.each do |u| %>
-                <li><%= u.lname %></li>
+                <li><%= link_to(u.lname, profile_path(u.id), method: :get) %></li>
               <% end %>
             </ol>
+          <% else %>
+            <br>
+            <li>No Last Name Matches!</li>
+          <% end %>
 
         </ul>
+      <% else %>
+        <h3>No Profile Matches!</h3>
+      <% end %>
     </div>
 
     <div id="review_results">
-      <h3>From Reviews:</h3>
-      
-      <ul>
-        
-        <li>Review Title:</li>
-        <ol>
-          <% @review_t.each do |r| %>
-            <li><%= r.title %></li>
+      <% if !(@review_presence == 0) %>
+        <h3>From Reviews:</h3>
+        <ul>
+          
+          <% if !@reviews_t.blank? %>
+            <li>By Review Title:</li>
+            <ol>
+              <% @reviews_t.each do |r| %>
+                <li><%= link_to(r.title, station_review_path(r.station.id, r.id), method: :get) %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <li>No Title Matches!</li>
           <% end %>
-        </ol>
 
-        <li>Review Title:</li>
-        <ol>
-          <% @review_t.each do |r| %>
-            <li><%= r.title %></li>
+          <% if !@reviews_c.blank? %>
+            <li>By Review Content:</li>
+            <ol>
+              <% @reviews_c.each do |r| %>
+                <li><%= link_to(r.content, station_review_path(r.station.id, r.id), method: :get) %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <br>
+            <li>No Content Matches!</li>
           <% end %>
-        </ol>
 
-        <!-- Need artist name/instruments/moreinfo -->
+          <!-- Need artist name/instruments/moreinfo -->
 
-      </ul>
+        </ul>
+      <% else %>
+        <h3>No Review Matches!</h3>
+      <% end %>
     </div>
 
-     <div id="station">
-      <h3>From Stations:</h3>
-      
-      <ul>
-        
-        <li>Station Name:</li>
-        <ol>
-          <% @station_n.each do |s| %>
-            <li><%= s.name %></li>
+    <div id="station">
+      <% if !(@station_presence == 0) %>
+        <h3>From Stations:</h3>
+        <ul>
+          
+          <% if !@stations_n.blank? %>
+            <li>By Station Name:</li>
+            <ol>
+              <% @stations_n.each do |s| %>
+                <li><%= link_to("#{s.name} (#{s.line})", station_path(s.id), method: :get) %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <li>No Name Matches!</li>
           <% end %>
-        </ol>
 
-        <li>Station Line:</li>
-        <ol>
-          <% @station_l.each do |s| %>
-            <li><%= s.line %></li>
+          <% if !@stations_l.blank? %>
+            <li>By Line:</li>
+            <ol>
+              <% @stations_l.each do |s| %>
+                <li><%= link_to("#{s.name} (#{s.line})", station_path(s.id), method: :get) %></li>
+              <% end %>
+            </ol><br>
+          <% else %>
+            <br>
+            <li>No Line Matches!</li>
           <% end %>
-        </ol>
 
-      </ul>
+        </ul>
+      <% else %>
+        <h3>No Station Matches!</h3>
+      <% end %>
     </div>
 
   <% end %>
