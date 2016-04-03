@@ -1,81 +1,71 @@
 <% if user_signed_in? && current_user.id == @profile.user_id  %>  
-  <div class="row">
+  <div class="row edit-profile">
     <div class="col-xs-10">
       <%= link_to("My Reviews", my_reviews_path, method: :get) %>
     </div>
   </div>
 
-<div class="row edit-profile">
-  <div class="col-xs-4">
-    <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
-    <%= f.file_field :avatar, class: "pick_file" %>
-    <%= f.submit :Update, class: "update_file", style: "display:none" %>
-    <% end %>
+  <div class = "row edit-profile">
+    <div class="col-xs-4">Username: </div>
+        <div class= "col-xs-6"> 
+          <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
   </div>
-  <div class="col-xs-4">
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">First name: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Last name: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Borough: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Neighborhood: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">
+      <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
+      <%= f.file_field :avatar, class: "pick_file" %>
+      <%= f.submit :Update, class: "update_file", style: "display:none" %>
+      <% end %>
+    </div>
+
+  <div class="row edit-profile">
     <%= image_tag @profile.avatar.url(:medium), class: "profile-avatar" %>
   </div>
 </div>
 
-    <br><br>
-
-  <div class = "row edit-profile">
-    <div class="col-xs-2">Username: </div>
-      <div class = "form-control">
-        <div class= "col-xs-6"> 
-          <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-      </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-2">First name: </div>
-      <div class="form-control"> 
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-      </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-2">Last name: </div>
-      <div class="form-control">
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-      </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-2">Borough: </div>
-      <div class="form-control">
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-      </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-2">Neighborhood: </div>
-      <div class="form-control">
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-      </div>
-  </div>
-
 
 <% else %>
-  <div class="col-xs-10">
-    
-    <ul>
-   
-      <li>Username: <%= @profile.username %> <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></li>
-      <li>Name: <%= @profile.full_name %></li>
-      <li>Borough: <%= @profile.borough %></li>
-      <li>Neighborhood: <%= @profile.neighborhood %></li>
-    </ul>
-    
+  <div class="row">
+    <div class="col-xs-10">
+      
+      <ul>
+     
+        <li>Username: <%= @profile.username %> <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></li>
+        <li>Name: <%= @profile.full_name %></li>
+        <li>Borough: <%= @profile.borough %></li>
+        <li>Neighborhood: <%= @profile.neighborhood %></li>
+      </ul>
+    </div>
   </div>
 
   <div class="row">
@@ -84,7 +74,7 @@
       <!-- Empty Div for spacing -->
     </div>
   
-    <div class="col-xs-4">
+    <div class="col-xs-10">
       <%= image_tag @profile.avatar.url(:medium) %>
     </div>
 
