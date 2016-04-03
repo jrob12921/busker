@@ -20,6 +20,7 @@ class StationsController < ApplicationController
   def show
     @station = Station.find(params[:id])
     @reviews = @station.reviews
+    @profile = Profile.find_by(user_id: current_user.id)
   end
 
 end

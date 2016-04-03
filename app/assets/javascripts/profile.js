@@ -15,7 +15,7 @@ $(document).ready(function() {
 // $('.best_in_place').bind("ajax:success", function(){ alert('Name updated for '+$(this).data('neighborhood')); });
 
   $(".pick_file").change(function() {
-    $(".update_file").attr("style","")
+    $(".update_file").attr("style","inline")
   })
 
   
