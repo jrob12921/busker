@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.fa-sign-in, .fa-plus {
+  margin-top: -3.5vw;
+  margin-left: -15vw;
+}
+
 .col-xs-12 {
 
   h6 {
@@ -202,6 +207,16 @@ ul > li {
 #map-container, #map {
   width: 100vw;
   height: 100vh;
+
+  .info_line_icon {
+    display: inline;
+    width: 20px;
+    height: 20px;
+  }
+
+  .info_station {
+    font-size: 20px;
+  }
 }
 
 .rev-3, .rev-2 {
@@ -258,14 +273,10 @@ textarea {
 }
 
 .info_line_icon {
-  display: inline;
-  width: 20px;
-  height: 20px;
-}
-
-.info_station {
-  font-size: 20px;
-}
+    display: inline;
+    width: 20px;
+    height: 20px;
+  }
 
 body {
   background-color: #fdbf2c;

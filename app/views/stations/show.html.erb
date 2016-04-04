@@ -1,29 +1,59 @@
-
-  <div class="col-xs-4">
-    <h2>Station Name:</h2> 
-    <h3><%= @station.name %></h3>
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Station Name:</strong> 
   </div>
-  <div class="col-xs-4">
-    <h2>Train Line(s):</h2>
-    <h3><%= @station.line %></h3>
+  <div class="col-xs-5">
+    <strong><%= @station.name %></strong>
   </div>
-  <div class="col-xs-4">
-    
+</div>
+<br>
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Train Line:</strong> 
+  </div>
+  <div class="col-xs-5">
+    <strong><%= @lines_as_src.html_safe %></strong>
+  </div>
+</div>
+<br>
+  <div class="row adjust">
+    <div class="col-xs-1"></div>
     <% if user_signed_in? && @profile.username.nil? %>
-      <h6><%= link_to("Create username to make a review", edit_profile_path(@profile), method: :get) %></h6>
+
+      <div class="col-xs-10">Create username to make a review <%= link_to('<i class="fa fa-2x fa-user"></i>'.html_safe, edit_profile_path(@profile), method: :get) %></div>
+
   
     <% elsif user_signed_in? %>
-      <h6><%= link_to("New Review", new_station_review_path(@station), method: :get) %></h6>
+  
+     
+
     <%else%>
-      <h6><%= link_to("Sign in to make a review",new_user_session_path, method: :get ) %></h6>
+
+      
+        <div class="col-xs-7">
+          <strong>Sign in to make a review</strong>
+        </div>
+        <div class="col-xs-1">
+           <%= link_to('<i class="fa fa-2x fa-sign-in"></i>'.html_safe, new_user_session_path, method: :get) %>
+        </div>
+      
+
     <% end %>
   </div>
 
 <br>
 
 <div class="row adjust">
-  <div class="col-xs-12 review-header">
-    Station Reviews:
+  <div class="col-xs-6 review-header">
+    Station Reviews: 
+  </div>
+
+  <div class="col-xs-1">
+    <% if user_signed_in? %>
+     <%= link_to('<i class="fa fa-2x fa-plus"></i>'.html_safe, new_station_review_path(@station), method: :get) %>
+     <% end %>
   </div>
 </div>
 
