@@ -1,3 +1,25 @@
+
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Station Name:</strong> 
+  </div>
+  <div class="col-xs-5">
+    <strong><%= @station.name %></strong>
+  </div>
+</div>
+<br>
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Train Line:</strong> 
+  </div>
+  <div class="col-xs-5">
+    <strong><%= @lines_as_src.html_safe %></strong>
+  </div>
+</div>
+<br>
+
 <% if @review.errors.full_messages.any? %>
   <% @review.errors.full_messages.each do |error_message| %><br/>
     <%= error_message %>

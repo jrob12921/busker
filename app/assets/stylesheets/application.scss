@@ -18,10 +18,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.col-xs-1{
+  .fa-sign-in{
+    margin-top: -3.5vw;
+    margin-left: -10vw;
+  }
 
-.fa-sign-in, .fa-plus {
-  margin-top: -3.5vw;
-  margin-left: -15vw;
+  .fa-plus {
+    margin-top: -3.5vw;
+    margin-left: -15vw;
+  }
+
+  .fa-user {
+    margin-top: -4vw;
+    margin-left: -10vw;
+  }
+}
 
 
 * {
@@ -142,7 +154,7 @@
   }
 
 .review-header {
-  margin-left: 5vw;
+  margin-left: 8vw;
 }
 
 ul > li {

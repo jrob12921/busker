@@ -67,6 +67,11 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @station = Station.find(params[:station_id])
+    @lines_as_src = ""
+      @station.line.split("-").each do |ln|
+        @lines_as_src += "<img class='info_line_icon' src=\/assets\/line_icons\/#{ln.downcase}.svg\/> "
+      end
+    @station_with_line = "#{@station.name} #{@lines_as_src}".html_safe
   end
 
   def create
