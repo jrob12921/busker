@@ -27,11 +27,11 @@
 
 .navbar {
   background-color: #053908;
-  
+
   .navbar-header {
-    
+
     .navbar-brand {
-      color: #666970;
+      /*color: #666970;*/
       text-shadow: 0.5px 0.5px 0.5px #facb5d;
       font-family: 'Permanent Marker', cursive;
     }
@@ -45,6 +45,12 @@
     
     }
   }
+
+/*  .navbar-collapse {
+    ul li {
+      color: #DB9A02;
+    }
+  }*/
 
 }
 
@@ -197,4 +203,8 @@ textarea {
 
 .info_station {
   font-size: 20px;
+}
+
+body {
+  background-color: #fdbf2c;
 }

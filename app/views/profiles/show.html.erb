@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user.id == @profile.user_id  %>  
   <div class="row edit-profile">
     <div class="col-xs-10">
-      <%= link_to("My Reviews", my_reviews_path, method: :get) %>
+      <h1><%= link_to("My Reviews", my_reviews_path, method: :get) %></h1>
     </div>
   </div>
 

@@ -15,7 +15,7 @@
     <% elsif user_signed_in? %>
     <h6><%= link_to("Create username to make a review", profile_path(@profile), method: :get) %></h6>
 
-    <%else%>
+    <% else %>
       <h6><%= link_to("Sign in to make a review",new_user_session_path, method: :get ) %></h6>
     <% end %>
   </div>

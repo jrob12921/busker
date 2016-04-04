@@ -1,5 +1,9 @@
 <% if user_signed_in? && current_user.id == @review.user_id %>
 
+<div class="row edit-review">
+  <h1>Review Left By: <%= link_to("Me", profile_path(current_user.id), method: :get) %></h1>
+</div>
+
 <div class="row edit-review ">
   <div class="col-xs-4">Title:</div>
     
@@ -99,25 +103,34 @@
 
   <div class="col-xs-10">
 
-    <li>Title: <%= @review.title %></li>
+    <h1>Review Left By: <%= link_to(@username, profile_path(@profile), method: :get ) %></h1>
 
-    <li>Username: <%= link_to(@username, profile_path(@profile), method: :get ) %></li>
+    <ul>
 
-    <li>Date Seen: <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
+      <li>Title: <%= @review.title %></li>
 
-    <!-- Need to figure this out -->
+      <li>Date Seen: <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
 
-    <li class="rating">Rating:</li>
+      <li class="rating">
+        Rating:
+        <% if @review.rating == false %>
+          <i class="fa fa-5x fa-thumbs-o-down" id="down"></i>
+        <% else %>
+          <i class="fa fa-5x fa-thumbs-o-up" id="up"></i>
+        <% end %>
+      </li>
 
-    <li>Content: <%= @review.content %></li>
+      <li>Content: <%= @review.content %></li>
 
-    <li><%= image_tag(@review.avatar.url(:medium)) %></li>
 
-    <li>Artist Name: <%= @review.artist_name %></li> 
+      <li>Artist Name: <%= @review.artist_name %></li> 
 
-    <li>Instruments: <%= @review.instruments %></li>
+      <li>Instruments: <%= @review.instruments %></li>
 
-    <li>More Info: <%= @review.add_info %></li>
+      <li>More Info: <%= @review.add_info %></li>
 
+    </ul>
+
+      <li><%= image_tag(@review.avatar.url(:medium)) %></li>
 
 <% end %>
