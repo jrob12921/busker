@@ -8,6 +8,12 @@ class Profile < ActiveRecord::Base
   validates_attachment_content_type :avatar, 
     :content_type => /\Aimage\/.*\Z/
 
+  validates :username, presence: {message: "Please include a username!"}, length: { maximum: 16 }
+
+  validates :fname, length: { maximum: 16 }
+
+  validates :lname, length: { maximum: 16 }
+
   def full_name
     "#{self.fname} #{self.lname}"
   end
