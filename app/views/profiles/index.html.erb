@@ -1,13 +1,29 @@
-<h2>All Profiles</h2>
+<div class="col-xs-10">
+  <h2>All Profiles</h2>
+</div>
+ 
  <% @profiles.each do |profile| %>
- 	<div class="col-xs-10">  
-    <ul> 
-      <li><%= image_tag profile.avatar.url(:medium) %></li>
-    	<li><strong>User Name:</strong> <%= profile.username %></li>
-      <li><strong>Name:</strong> <%= profile.full_name %></li>
-      <li><strong>Borough:</strong> <%= profile.borough %></li>
-      <li><strong>Neighborhood:</strong> <%= profile.neighborhood %></li>
-    </ul>
+ 	
+  <div class="col-xs-10">  
+    <strong>User Name:</strong> <%= profile.username %><%= link_to('<i class="fa fa-user"></i>'.html_safe, profile_path(profile.id), method: :get) %>
   </div>
+
+  <div class="col-xs-10">  
+    <%= image_tag profile.avatar.url(:medium) %>
+  </div>
+
+  <div class="col-xs-10">  
+    <strong>Name:</strong> <%= profile.full_name %>
+  </div>
+
+  <div class="col-xs-10">    
+    <strong>Borough:</strong> <%= profile.borough %>
+  </div>
+
+  <div class="col-xs-10">        
+    <strong>Neighborhood:</strong> <%= profile.neighborhood %>
+  </div>
+
+  <div class="col-xs-10"><hr></div>
 
  <% end %>
