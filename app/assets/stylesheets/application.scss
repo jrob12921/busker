@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+* {
+  font-family: 'Asap', sans-serif;
+}
+
 .col-xs-12 {
 
   h6 {
@@ -73,13 +78,14 @@
 
     .navbar-brand {
       color: #facb5d;
-      text-shadow: 0.5px 0.5px 0.5px #990645;
-      font-family: 'Permanent Marker', cursive;
+      text-shadow: 1px 1px 1px #990645;
+      font-family: 'Walter Turncoat', cursive;
 
     }
 
     .navbar-toggle {
       background-color: #053908;
+      border-color: #facb5d;
       
       .icon-bar {
         background-color: #facb5d;
@@ -92,22 +98,28 @@
     ul li a {
       font-weight: bold;
       color: #DB9A02;
+
+      &:hover {
+      color: #DB9A02; 
+      text-shadow: 2px 2px 2px black;       
+      }
     }
   }
 
 }
 
-#search_button {
+#search_button, #search_button2 {
   background-color: #DB9A02;
   color: #053908;
+  border-color: #fdbf2c;  
 }
 
-#search_field {
+#search_field, #search_field2 {
   background-color: #09680f ;
   color: #DB9A02;
 }
 
-#search_form {
+#search_form, #search_form2 {
   border-color: #fdbf2c;
 }
 
@@ -268,4 +280,9 @@ textarea {
 
 body {
   background-color: #fdbf2c;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
 }
