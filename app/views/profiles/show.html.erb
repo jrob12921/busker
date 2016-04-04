@@ -1,84 +1,43 @@
-<% if user_signed_in? && current_user.id == @profile.user_id  %>  
-  <div class="row edit-profile">
-    <div class="col-xs-10">
-      <h1><%= link_to("My Reviews", my_reviews_path, method: :get) %></h1>
-    </div>
+<% if user_signed_in? && current_user.id == @profile.user_id %>
+
+  <div class="row">
+      <div class="col-xs-10">  
+        <h1>My Profile <%= link_to("(My Reviews)", "/user_reviews/#{current_user.id}", method: :get) %></h1>
+
+        <h2><%= link_to("Edit My Profile", edit_profile_path(@profile.id), method: :get) %></h2>
+      </div>
   </div>
-
-  <div class = "row edit-profile">
-    <div class="col-xs-4">Username: </div>
-        <div class= "col-xs-6"> 
-          <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-4">First name: </div>
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-4">Last name: </div>
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-4">Borough: </div>
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-4">Neighborhood: </div>
-        <div class="col-xs-6">
-          <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
-        </div>
-  </div>
-
-  <div class="row edit-profile">
-    <div class="col-xs-4">
-      <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
-      <%= f.file_field :avatar, class: "pick_file" %>
-      <%= f.submit :Update, class: "update_file", style: "display:none" %>
-      <% end %>
-    </div>
-
-  <div class="row edit-profile">
-    <%= image_tag @profile.avatar.url(:medium), class: "profile-avatar" %>
-  </div>
-</div>
-
 
 <% else %>
-  <div class="row">
-    <div class="col-xs-10">
-      
-      <ul>
-     
-        <li>Username: <%= @profile.username %> <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></li>
-        <li>Name: <%= @profile.full_name %></li>
-        <li>Borough: <%= @profile.borough %></li>
-        <li>Neighborhood: <%= @profile.neighborhood %></li>
-      </ul>
-    </div>
-  </div>
 
   <div class="row">
-    
-    <div class="col-xs-4">
-      <!-- Empty Div for spacing -->
-    </div>
-  
-    <div class="col-xs-10">
-      <%= image_tag @profile.avatar.url(:medium) %>
-    </div>
-
+      <div class="col-xs-10">  
+        <h1><%= @profile.username %>'s Profile <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></h1>
+      </div>
   </div>
 
 <% end %>
+
+<div class="row">
   
+  <div class="col-xs-10">  
+    <ul> 
+      <li>Name: <%= @profile.full_name %></li>
+      <li>Borough: <%= @profile.borough %></li>
+      <li>Neighborhood: <%= @profile.neighborhood %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  
+  <div class="col-xs-4">
+    <!-- Empty Div for spacing -->
+  </div>
+
+  <div class="col-xs-10">
+    <%= image_tag @profile.avatar.url(:medium) %>
+  </div>
+
+</div>
+
