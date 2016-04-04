@@ -26,7 +26,16 @@
           <li><%= link_to "Stations", root_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Profile", profile_path(current_user.profile.id) %></li>
-            <li><%= link_to "Reviews", my_reviews_path %></li>
+
+            <li class= "dropdown">
+              <li><%= link_to "Reviews", my_reviews_path %></li>
+              <a href= "#" class"dropdown-toggle" data-toggle="dropdown" role="button"
+
+
+
+
+
+
           <% else %>
             <li><%= link_to "Reviews", reviews_path %></li>
             <% end %>
