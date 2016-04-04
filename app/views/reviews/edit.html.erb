@@ -5,7 +5,7 @@
 
 <div class="row edit-review">
   <div class="col-xs-10">
-    <h1>Edit <%= link_to("My", profile_path(current_user.profile.id), method: :get) %> Review:</h1>
+    <h4>Back to my reviews <%= link_to('<i class="fa fa-list"></i>'.html_safe, my_reviews_path, method: :get) %></h4>
     <h5>Edit your review by clicking over the area you want to change. Be careful, it will save automatically!</h5>
   </div>
 </div>
