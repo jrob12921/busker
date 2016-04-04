@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+* {
+  font-family: 'Asap', sans-serif;
+}
+
 .col-xs-12 {
 
   h6 {
@@ -73,13 +78,14 @@
 
     .navbar-brand {
       color: #facb5d;
-      text-shadow: 0.5px 0.5px 0.5px #990645;
-      font-family: 'Permanent Marker', cursive;
+      text-shadow: 1px 1px 1px #990645;
+      font-family: 'Walter Turncoat', cursive;
 
     }
 
     .navbar-toggle {
       background-color: #053908;
+      border-color: #facb5d;
       
       .icon-bar {
         background-color: #facb5d;
