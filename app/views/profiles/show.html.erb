@@ -1,18 +1,19 @@
 <% if user_signed_in? && current_user.id == @profile.user_id %>
 
-  <div class="row">
+  <div class="row adjust">
       <div class="col-xs-10">  
-        <h1>My Profile </h1>
+        <h1 class="my-profile">My Profile </h1>
 
-        <h3><%= link_to("Edit My Profile", edit_profile_path(@profile.id), method: :get) %></h3>
+        <h6><%= link_to("Edit My Profile", edit_profile_path(@profile.id), method: :get) %></h6>
+        <h6><%= link_to("See My Reviews", "/user_reviews/#{current_user.id}", method: :get) %></h6>
 
-        <h3><%= link_to("See My Reviews", "/user_reviews/#{current_user.id}", method: :get) %></h3>
+        
       </div>
   </div>
 
 <% else %>
 
-  <div class="row">
+  <div class="row adjust">
       <div class="col-xs-10">  
         <h1><%= @profile.username %>'s Profile <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></h1>
       </div>
@@ -20,7 +21,7 @@
 
 <% end %>
 
-<div class="row">
+<div class="row adjust">
   
   <div class="col-xs-10">  
     <ul> 
@@ -31,7 +32,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row adjust">
   
   <div class="col-xs-4">
     <!-- Empty Div for spacing -->
