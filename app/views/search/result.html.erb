@@ -1,7 +1,7 @@
 
 <div id="search_results">
 
-  <% if params[:query] %>
+  <% if !params[:query].blank? %>
     
     <h2>Results:</h2>
 
@@ -121,6 +121,28 @@
         <h3>No Station Matches!</h3>
       <% end %>
     </div>
+    <br>
+    <h4>Search Again:</h4>
+
+  <% else %>
+
+  <h2>No Results? Try again...</h2>
+
 
   <% end %>
+  <form role="form" action="/results" method="post" id="search_form2">  
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." name="query" id="search_field2">
+      <span class="input-group-btn">
+
+        <script type="text/javascript">
+          function search_submit() {
+            $("#search_form2").submit()  
+          }
+        </script>
+        
+        <button class="btn btn-default" id="search_button2" type="button" onclick="search_submit()">Go!</button>
+      </span>
+    </div>
+  </form>
 </div>
