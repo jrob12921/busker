@@ -45,17 +45,33 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @username = Profile.find_by(user_id: @review.user_id).username
     @profile = Profile.find_by(user_id: @review.user_id).id
+    @lines_as_src = ""
+      @review.station.line.split("-").each do |ln|
+        @lines_as_src += "<img class='info_line_icon' src=\/assets\/line_icons\/#{ln.downcase}.svg\/> "
+      end
+    @station_with_line = "#{@review.station.name} #{@lines_as_src}".html_safe
   end
 
   def edit
     @review = Review.find(params[:id])
     @username = Profile.find_by(user_id: @review.user_id).username
     @profile = Profile.find_by(user_id: @review.user_id).id
+    @lines_as_src = ""
+      @review.station.line.split("-").each do |ln|
+        @lines_as_src += "<img class='info_line_icon' src=\/assets\/line_icons\/#{ln.downcase}.svg\/> "
+      end
+    @station_with_line = "#{@review.station.name} #{@lines_as_src}".html_safe
+
   end
 
   def new
     @review = Review.new
     @station = Station.find(params[:station_id])
+    @lines_as_src = ""
+      @station.line.split("-").each do |ln|
+        @lines_as_src += "<img class='info_line_icon' src=\/assets\/line_icons\/#{ln.downcase}.svg\/> "
+      end
+    @station_with_line = "#{@station.name} #{@lines_as_src}".html_safe
   end
 
   def create

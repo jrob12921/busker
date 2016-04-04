@@ -21,6 +21,10 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     @reviews = @station.reviews
     @profile = Profile.find_by(user_id: current_user.id) if user_signed_in?
+    @lines_as_src = ""
+      @station.line.split("-").each do |ln|
+        @lines_as_src += "<img class='info_line_icon' src=\/assets\/line_icons\/#{ln.downcase}.svg\/> "
+      end
   end
 
 end

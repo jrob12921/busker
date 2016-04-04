@@ -1,10 +1,32 @@
+
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Station Name:</strong> 
+  </div>
+  <div class="col-xs-5">
+    <strong><%= @station.name %></strong>
+  </div>
+</div>
+<br>
+<div class="row adjust">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-5">
+    <strong>Train Line:</strong> 
+  </div>
+  <div class="col-xs-5">
+    <strong><%= @lines_as_src.html_safe %></strong>
+  </div>
+</div>
+<br>
+
 <% if @review.errors.full_messages.any? %>
   <% @review.errors.full_messages.each do |error_message| %><br/>
     <%= error_message %>
   <% end %>
 <% end %>
 
-<div class="col-xs-9">
+<div class="col-xs-9 new-review">
 
   <%= bootstrap_form_for(@review, url: station_reviews_path, method: :post, :html => {:multipart => true}) do |r| %>
 
@@ -13,7 +35,7 @@
       <%= r.hidden_field :station_id, value: params[:station_id] %>
 
       <div><strong>*= Required Field</strong></div>
-
+      <br>
       <%= r.text_field :title, label: "*Title" %>
 
       <%= r.text_area :content, label: "*Content", rows: 4 %>

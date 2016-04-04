@@ -18,9 +18,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.col-xs-1{
+  .fa-sign-in{
+    margin-top: -3.5vw;
+    margin-left: -10vw;
+  }
+
+  .fa-plus {
+    margin-top: -3.5vw;
+    margin-left: -15vw;
+  }
+
+  .fa-user {
+    margin-top: -4vw;
+    margin-left: -10vw;
+  }
+}
+
 
 * {
   font-family: 'Asap', sans-serif;
+
 }
 
 .col-xs-12 {
@@ -141,7 +159,7 @@
   }
 
 .review-header {
-  margin-left: 5vw;
+  margin-left: 8vw;
 }
 
 ul > li {
@@ -205,19 +223,29 @@ ul > li {
   }
 }
 
+.new-review {
+  margin-left: 4.5vw;
+}
+
 .edit-review {
   margin-left: 3vw;
   margin-right: 3vw;
-
-  h1, h4 {
-    margin-left: 3vw;
-  }
 
 }
 
 #map-container, #map {
   width: 100vw;
   height: 100vh;
+
+  .info_line_icon {
+    display: inline;
+    width: 20px;
+    height: 20px;
+  }
+
+  .info_station {
+    font-size: 20px;
+  }
 }
 
 .rev-3, .rev-2 {
@@ -274,14 +302,10 @@ textarea {
 }
 
 .info_line_icon {
-  display: inline;
-  width: 20px;
-  height: 20px;
-}
-
-.info_station {
-  font-size: 20px;
-}
+    display: inline;
+    width: 20px;
+    height: 20px;
+  }
 
 body {
   background-color: #fdbf2c;
