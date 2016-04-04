@@ -29,7 +29,7 @@
 
       <li><strong>Date Seen:</strong> <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
       <br>
-      <li><%= image_tag(@review.avatar.url(:medium)) %></li>
+      <li><%= image_tag(@review.avatar.url(:medium), class: "avatar-pic") %></li>
 
       <li class="rating">
        <strong>Rating:</strong>

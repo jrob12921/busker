@@ -55,6 +55,12 @@
 
   }
 
+  .heading_profile {
+    padding-left: 0;
+    font-size: 30px;
+
+  }
+
 }
 
 .adjust {
@@ -212,6 +218,7 @@ ul > li {
       height: 90%;
       width: 100%;
       margin-top: 1vw;
+      border-radius: 5px;
 
     }
   }
@@ -306,7 +313,7 @@ textarea {
 
 .info_line_icon {
     display: inline;
-    width: 20px;
+    max-width: 20px;
     height: 20px;
   }
 
@@ -317,4 +324,9 @@ body {
 a:link, a:visited {
   text-decoration: none;
   color: black;
+}
+
+.avatar-pic {
+  border: 2px solid black;
+  border-radius: 5px;
 }

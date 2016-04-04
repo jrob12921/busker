@@ -40,7 +40,9 @@ $(document).ready(function(){
 
   //this change function is to make the update button appear when a user selects a new avatar on the update review page
   $(".pick_file").change(function() {
-    $(".update_file").attr("style","")
+    // courtesy of Mike Miller
+    $(".update_file").click();
+    $(".update_file").hide()
   })
 
 

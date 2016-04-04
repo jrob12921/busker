@@ -1,6 +1,7 @@
-<div class="row adjust">
-  <div class="col-xs-6 review-header">
-    <%= @user.profile.username %>'s Reviews
+<div class="row edit-profile">
+  <div class="col-xs-12">  
+    <div><span class="heading_profile"><%= @user.profile.username %>'s Reviews</span></div>
+    <h5>Check Out Their Profile<%= link_to('<i class="fa fa-user"></i>'.html_safe, "/profiles/#{@user.profile.id}", method: :get) %></h5>
   </div>
 </div>
 
