@@ -1,10 +1,9 @@
 <% if user_signed_in? && current_user.id == @profile.user_id %>
 
-  <div class="row">
+  <div class="row adjust">
       <div class="col-xs-10">  
-        <h1>My Profile </h1>
+        <div><span class="heading">My Profile</span> <%= link_to('<i class="fa fa-2x fa-pencil-square"></i>'.html_safe, edit_profile_path(@profile.id), method: :get) %></div>
 
-        <h3><%= link_to("Edit My Profile", edit_profile_path(@profile.id), method: :get) %></h3>
 
         <h3><%= link_to("See My Reviews", "/user_reviews/#{current_user.id}", method: :get) %></h3>
       </div>
@@ -12,7 +11,7 @@
 
 <% else %>
 
-  <div class="row">
+  <div class="row adjust">
       <div class="col-xs-10">  
         <h1><%= @profile.username %>'s Profile <%= link_to("(Check Out Their Reviews)", "/user_reviews/#{@profile.user.id}", method: :get) %></h1>
       </div>
@@ -20,7 +19,7 @@
 
 <% end %>
 
-<div class="row">
+<div class="row adjust">
   
   <div class="col-xs-10">  
     <ul> 
