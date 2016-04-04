@@ -4,6 +4,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
   def update
     @profile = Profile.find(params[:id])
     @profile.update(profile_params)

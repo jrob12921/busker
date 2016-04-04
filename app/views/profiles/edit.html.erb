@@ -1,0 +1,55 @@
+  <div class="row edit-profile">
+    <div class="col-xs-10">
+      <h1>Edit My Profile:</h1>
+      <h2><%= link_to("See My Reviews", my_reviews_path, method: :get) %></h2>
+      <h4>On this page you can edit your profile by tapping into it.  Be careful, it will save automatically!</h4>
+    </div>
+  </div>
+
+  <div class = "row edit-profile">
+    <div class="col-xs-4">Username: </div>
+        <div class= "col-xs-6"> 
+          <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">First name: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Last name: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Borough: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">Neighborhood: </div>
+        <div class="col-xs-6">
+          <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
+        </div>
+  </div>
+
+  <div class="row edit-profile">
+    <div class="col-xs-4">
+      <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
+      <%= f.file_field :avatar, class: "pick_file" %>
+      <%= f.submit :Update, class: "update_file", style: "display:none" %>
+      <% end %>
+    </div>
+
+  <div class="row edit-profile">
+    <%= image_tag @profile.avatar.url(:medium), class: "profile-avatar" %>
+  </div>
+</div>

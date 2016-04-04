@@ -9,31 +9,33 @@ $(document).ready(function(){
   $("#down").click(function(){
 
     if(!$("#review_rating_false")[0].checked){
+      
       $("#review_rating_false")[0].checked = true
-      $("#down").attr("class","fa fa-2x fa-thumbs-down")
+      $("#down").attr("class","fa fa-5x fa-thumbs-down")
 
       $("#review_rating_true")[0].checked = false
-      $("#up").attr("class","fa fa-2x fa-thumbs-o-up")
+      $("#up").attr("class","fa fa-5x fa-thumbs-o-up")
 
     }
   })
 
   $("#up").click(function(){
     if(!$("#review_rating_true")[0].checked){
+
       $("#review_rating_true")[0].checked = true
-      $("#up").attr("class","fa fa-2x fa-thumbs-up")
+      $("#up").attr("class","fa fa-5x fa-thumbs-up")
 
       $("#review_rating_false")[0].checked = false
-      $("#down").attr("class","fa fa-2x fa-thumbs-o-down")
+      $("#down").attr("class","fa fa-5x fa-thumbs-o-down")
 
     }
   })
 
   //this function is to populate the thumbs up/down on the edit review page
   if($("#review_rating_true")[0].checked){
-    $("#up").attr("class","fa fa-2x fa-thumbs-up")
+    $("#up").attr("class","fa fa-5x fa-thumbs-up")
   }else if($("#review_rating_false")[0].checked){
-    $("#down").attr("class","fa fa-2x fa-thumbs-down")    
+    $("#down").attr("class","fa fa-5x fa-thumbs-down")    
   }
 
   //this change function is to make the update button appear when a user selects a new avatar on the update review page

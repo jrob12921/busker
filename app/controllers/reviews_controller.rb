@@ -37,9 +37,6 @@ class ReviewsController < ApplicationController
 
   end
 
-
-
-
   def index
     @reviews = Review.where(station_id: params[:station_id])
   end
@@ -48,8 +45,12 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @username = Profile.find_by(user_id: @review.user_id).username
     @profile = Profile.find_by(user_id: @review.user_id).id
+  end
 
-
+  def edit
+    @review = Review.find(params[:id])
+    @username = Profile.find_by(user_id: @review.user_id).username
+    @profile = Profile.find_by(user_id: @review.user_id).id
   end
 
   def new

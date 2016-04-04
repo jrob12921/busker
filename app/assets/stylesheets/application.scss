@@ -27,9 +27,9 @@
 
 .navbar {
   background-color: #053908;
-  
+
   .navbar-header {
-    
+
     .navbar-brand {
       color: #666970;
       text-shadow: 0.5px 0.5px 0.5px #facb5d;
@@ -46,6 +46,27 @@
     }
   }
 
+  .navbar-collapse {
+    ul li a {
+      font-weight: bold;
+      color: #DB9A02;
+    }
+  }
+
+}
+
+#search_button {
+  background-color: #DB9A02;
+  color: #053908;
+}
+
+#search_field {
+  background-color: #09680f ;
+  color: #DB9A02;
+}
+
+#search_form {
+  border-color: #fdbf2c;
 }
 
 .field, .actions {
@@ -197,4 +218,8 @@ textarea {
 
 .info_station {
   font-size: 20px;
+}
+
+body {
+  background-color: #fdbf2c;
 }
