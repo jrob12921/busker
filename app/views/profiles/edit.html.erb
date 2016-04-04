@@ -7,35 +7,35 @@
   </div>
 
   <div class = "row edit-profile">
-    <div class="col-xs-4">Username: </div>
+    <div class="col-xs-4"><strong>Username:</strong></div>
         <div class= "col-xs-6"> 
           <%= best_in_place @profile, :username, :data => {:profile_username => @profile.username}, :classes => 'highlight_on_success', :as => :input %>
         </div>
   </div>
 
   <div class="row edit-profile">
-    <div class="col-xs-4">First name: </div>
+    <div class="col-xs-4"><strong>First name:</strong></div>
         <div class="col-xs-6">
           <%= best_in_place @profile, :fname, :data => {:profile_fname => @profile.fname}, :classes => 'highlight_on_success', :as => :input %>
         </div>
   </div>
 
   <div class="row edit-profile">
-    <div class="col-xs-4">Last name: </div>
+    <div class="col-xs-4"><strong>Last name:</strong></div>
         <div class="col-xs-6">
           <%= best_in_place @profile, :lname, :data => {:profile_lname => @profile.lname}, :classes => 'highlight_on_success', :as => :input %>
         </div>
   </div>
 
   <div class="row edit-profile">
-    <div class="col-xs-4">Borough: </div>
+    <div class="col-xs-4"><strong>Borough:</strong></div>
         <div class="col-xs-6">
           <%= best_in_place @profile, :borough, :data => {:profile_borough => @profile.borough}, :classes => 'highlight_on_success', :as => :input %>
         </div>
   </div>
 
   <div class="row edit-profile">
-    <div class="col-xs-4">Neighborhood: </div>
+    <div class="col-xs-4"><strong>Neighborhood:</strong></div>
         <div class="col-xs-6">
           <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
         </div>

@@ -25,12 +25,14 @@
 
     <ul>
 
-      <li>Title: <%= @review.title %></li>
+      <li><strong>Title:</strong> <%= @review.title %></li>
 
-      <li>Date Seen: <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
+      <li><strong>Date Seen:</strong> <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
+
+      <li><%= image_tag(@review.avatar.url(:medium)) %></li>
 
       <li class="rating">
-        Rating:
+       <strong>Rating:</strong>
         <% if @review.rating == false %>
           <i class="fa fa-5x fa-thumbs-down" id="down"></i>
         <% else %>
@@ -38,20 +40,15 @@
         <% end %>
       </li>
 
-      <li>Content: <%= @review.content %></li>
+      <li><strong>Content:</strong> <%= @review.content %></li>
 
-      <li>Artist Name: <%= @review.artist_name %></li> 
+      <li><strong>Artist Name:</strong> <%= @review.artist_name %></li> 
 
-      <li>Instruments: <%= @review.instruments %></li>
+      <li><strong>Instruments:</strong> <%= @review.instruments %></li>
 
       <li>More Info: <%= @review.add_info %></li>
-      <br>
-
-      <li><%= image_tag(@review.avatar.url(:medium)) %></li>
-
+    
     </ul>
-
-      
 
   </div>
 </div>
