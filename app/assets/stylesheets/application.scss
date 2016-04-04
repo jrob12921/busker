@@ -21,9 +21,15 @@
 .col-xs-12 {
 
   h6 {
-    margin-left: 1vw;
+    margin-left: 2.5vw;
     
     display: inline;
+  }
+
+  .heading {
+    padding-left: 10px;
+    font-size: 36px;
+
   }
 
 }
@@ -37,10 +43,12 @@
   }
 
   .heading {
-    padding-left: 10px;
+    padding-left: 27px;
     font-size: 36px;
+
   }
 }
+
 
 .col-xs-10 {
   h6 {
@@ -51,6 +59,10 @@
 
   img, .my-profile {
     margin-left: 5vw;
+  }
+
+  li{
+    margin-left: -12px; 
   }
 }
 
