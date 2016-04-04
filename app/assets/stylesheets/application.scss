@@ -83,7 +83,7 @@
     display: inline;
   }
 
-  img, .my-profile {
+  .my-profile {
     margin-left: 5vw;
   }
 
@@ -124,6 +124,11 @@
       color: #DB9A02; 
       text-shadow: 2px 2px 2px black;       
       }
+
+    }
+
+    .dropdown .nav ul li a {
+      color: #DB9A02;
     }
   }
 
