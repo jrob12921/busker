@@ -1,10 +1,13 @@
-<div class="col-xs-12">
-  <h1 class="heading"><%= link_to(@station_with_line, station_path(@review.station.id), method: :get) %><h1>
-</div>
+
+  <div class="col-xs-12">
+    <h1 class="heading"><%= link_to(@station_with_line, station_path(@review.station.id), method: :get) %><h1>
+  </div>
 
 <div class="row edit-review">
-  <h1>Edit <%= link_to("My", profile_path(current_user.profile.id), method: :get) %> Review:</h1>
-  <h4>Edit your review by clicking over the area you want to change.  Be careful, it will save automatically!</h4>
+  <div class="col-xs-10">
+    <h1>Edit <%= link_to("My", profile_path(current_user.profile.id), method: :get) %> Review:</h1>
+    <h5>Edit your review by clicking over the area you want to change. Be careful, it will save automatically!</h5>
+  </div>
 </div>
 
 <div class="row edit-review ">
