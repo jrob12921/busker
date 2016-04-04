@@ -18,6 +18,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: "Samarkan";
+  src: font-url('samarkan.ttf') format("truetype");
+}
+
+.heading {
+  padding-left: 10px;
+  font-size: 36px;
+}
+
 .col-xs-10 {
   
   img {
@@ -33,7 +43,7 @@
     .navbar-brand {
       color: #666970;
       text-shadow: 0.5px 0.5px 0.5px #facb5d;
-      font-family: 'Permanent Marker', cursive;
+      font-family: "Permanent Marker", cursive;
     }
 
     .navbar-toggle {
