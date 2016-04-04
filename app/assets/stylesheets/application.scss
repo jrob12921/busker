@@ -18,6 +18,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+<<<<<<< HEAD
 .col-xs-12 {
 
   h6 {
@@ -30,6 +31,16 @@
 
 .adjust {
   width: 90%;
+
+  @font-face {
+    font-family: "Samarkan";
+    src: font-url('samarkan.ttf') format("truetype");
+  }
+
+  .heading {
+    padding-left: 10px;
+    font-size: 36px;
+  }
 }
 
 .col-xs-10 {
@@ -53,6 +64,7 @@
       color: #facb5d;
       text-shadow: 0.5px 0.5px 0.5px #990645;
       font-family: 'Permanent Marker', cursive;
+
     }
 
     .navbar-toggle {

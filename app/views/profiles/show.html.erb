@@ -2,7 +2,8 @@
 
   <div class="row adjust">
       <div class="col-xs-10">  
-        <h1 class="my-profile">My Profile </h1>
+
+        <div><span class="heading">My Profile</span> <%= link_to('<i class="fa fa-2x fa-pencil-square"></i>'.html_safe, edit_profile_path(@profile.id), method: :get) %></div>
 
         <h6><%= link_to("Edit My Profile", edit_profile_path(@profile.id), method: :get) %></h6>
         <h6><%= link_to("See My Reviews", "/user_reviews/#{current_user.id}", method: :get) %></h6>
@@ -10,6 +11,7 @@
         <div>
           <%= image_tag @profile.avatar.url(:medium) %>
         </div>
+
       </div>
   </div>
 <br>
