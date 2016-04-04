@@ -27,4 +27,8 @@ class Review < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
+  def format_date
+    self.date_seen.strftime("%-m/%-d/%Y")
+  end
+
 end

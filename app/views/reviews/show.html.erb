@@ -1,123 +1,54 @@
 <% if user_signed_in? && current_user.id == @review.user_id %>
 
-<div class="row edit-review ">
-  <div class="col-xs-4">Title:</div>
+<div class="col-xs-12">
+
+  <h1>My Review</h1> 
     
-      <div class= "col-xs-6">
-        <%= best_in_place @review, :title, :url => station_review_path, :data => {:review_title => @review.title}, :class => 'highlight_on_success', :as => :input %>
-    </div>
-  
-</div>
+  <h3><%= link_to("See My Profile", profile_path(current_user.profile.id), method: :get ) %></h3>
 
-<div class="row edit-review">
-  <div class="col-xs-4">Date Seen:</div>
-    
-     <div class= "col-xs-6">
-      <%= best_in_place @review, :date_seen, :url => station_review_path, :data => {:review_date_seen => @review.date_seen.strftime("%-m/%-d/%Y")}, :class => 'highlight_on_success', :as => :input %>
-    </div>
+  <h3><%= link_to("Edit This Review", edit_station_review_path(@review.station.id, @review.id), method: :get) %></h3>
 
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-4">Rating:</div>
-    <%= bootstrap_form_for(@review, url: station_reviews_path, method: :post) do |r| %>
-      
-      <div class="col-xs-2">
-        <a href="/rating_down/<%= @review.id %>" data-remote="true" data-rating="false" class="rating">
-          <%= r.radio_button :rating, false, class: "radio" %>
-          <i class="fa fa-2x fa-thumbs-o-down" id="down"></i>
-        </a>
-      </div>
-
-      <div class="col-xs-2">
-        <a href="/rating_up/<%= @review.id %>" data-remote="true" data-rating="true" class="rating">
-          <%= r.radio_button :rating, true, class: "radio" %>
-          <i class="fa fa-2x fa-thumbs-o-up" id="up"></i>
-        </a>
-      </div>
-      
-    <% end %>
-  
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-4">Content:</div>
-    
-      <div class= "col-xs-6">    
-        <%= best_in_place @review, :content, :display_with => :simple_format, :url => station_review_path, :data => {:review_content => @review.content}, :class => 'highlight_on_success', :as => :input %>
-    </div>
-  
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-4">Artist Name:</div>
-    
-      <div class= "col-xs-6">
-        <%= best_in_place @review, :artist_name, :url => station_review_path, :data => {:review_artist_name => @review.artist_name}, :class => 'highlight_on_success', :as => :input %>
-    </div>
- 
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-4">Instruments:</div>
-    
-      <div class= "col-xs-6">
-        <%= best_in_place @review, :instruments, :url => station_review_path, :data => {:review_instruments => @review.instruments}, :class => 'highlight_on_success', :as => :input %>
-    </div>
-  
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-4">More Info:</div>
-    
-     <div class= "col-xs-6">
-      <%= best_in_place @review, :add_info, :url => station_review_path, :data => {:review_add_info => @review.add_info}, :class => 'highlight_on_success', :as => :input %>
-    </div>
-  
-</div>
-
-<div class="row edit-review">
-  <div class="col-xs-3">
-    <%= bootstrap_form_for @review, :url => station_review_path(@review.station_id, @review), :html => { :multipart => true} do |f| %>
-    <%= f.file_field :avatar, class: "pick_file" %>
-    <%= f.submit :Update, class: "update_file", style: "display:none" %>
-    <% end %>
-  </div>
-</div>
-<br>
-<div class="row edit-review">
-    <%= image_tag @review.avatar.url(:medium), class: "edit-review" %>
-</div>
-<br>
-<div class="row edit-review">
-  <div class="col-xs-12">
-    <%= link_to("DELETE REVIEW", station_review_path(@review.station_id, @review), method: :delete) %>
-  </div>
 </div>
 
 <% else %>
 
-  <div class="col-xs-10">
+  <div class="col-xs-12">
 
-    <li>Title: <%= @review.title %></li>
+    <h1>Review Left By: <%= link_to(@username, profile_path(@profile), method: :get ) %></h1>
 
-    <li>Username: <%= link_to(@username, profile_path(@profile), method: :get ) %></li>
-
-    <li>Date Seen: <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
-
-    <!-- Need to figure this out -->
-
-    <li class="rating">Rating:</li>
-
-    <li>Content: <%= @review.content %></li>
-
-    <li><%= image_tag(@review.avatar.url(:medium)) %></li>
-
-    <li>Artist Name: <%= @review.artist_name %></li> 
-
-    <li>Instruments: <%= @review.instruments %></li>
-
-    <li>More Info: <%= @review.add_info %></li>
-
+  </div>
 
 <% end %>
+
+<div class="row">
+  <div class="col-xs-12"></div>
+
+    <ul>
+
+      <li>Title: <%= @review.title %></li>
+
+      <li>Date Seen: <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
+
+      <li class="rating">
+        Rating:
+        <% if @review.rating == false %>
+          <i class="fa fa-5x fa-thumbs-down" id="down"></i>
+        <% else %>
+          <i class="fa fa-5x fa-thumbs-up" id="up"></i>
+        <% end %>
+      </li>
+
+      <li>Content: <%= @review.content %></li>
+
+      <li>Artist Name: <%= @review.artist_name %></li> 
+
+      <li>Instruments: <%= @review.instruments %></li>
+
+      <li>More Info: <%= @review.add_info %></li>
+
+    </ul>
+
+      <li><%= image_tag(@review.avatar.url(:medium)) %></li>
+
+  </div>
+</div>
