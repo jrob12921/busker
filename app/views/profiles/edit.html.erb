@@ -1,7 +1,7 @@
   <div class="row edit-profile">
     <div class="col-xs-10">
       <h1>Edit My Profile:</h1>
-      <h2><%= link_to("See My Reviews", my_reviews_path, method: :get) %></h2>
+      <h5 class="my-reviews"><%= link_to("See My Reviews", my_reviews_path, method: :get) %></h5>
       <h4>On this page you can edit your profile by tapping into it.  Be careful, it will save automatically!</h4>
     </div>
   </div>
@@ -40,11 +40,11 @@
           <%= best_in_place @profile, :neighborhood, :data => {:profile_neighborhood => @profile.neighborhood}, :classes => 'highlight_on_success', :as => :input %>
         </div>
   </div>
-
+  <br>
   <div class="row edit-profile">
     <div class="col-xs-4">
       <%= bootstrap_form_for @profile, :url => profile_path(@profile.id), :html => { :multipart => true} do |f| %>
-      <%= f.file_field :avatar, class: "pick_file" %>
+      <%= f.file_field :avatar, hide_label: true, class: "pick_file" %>
       <%= f.submit :Update, class: "update_file", style: "display:none" %>
       <% end %>
     </div>

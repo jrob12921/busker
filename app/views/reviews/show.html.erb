@@ -5,6 +5,7 @@
     <div><span class="heading">My Review </span><%= link_to('<i class="fa fa-2x fa-pencil-square"></i>'.html_safe, edit_station_review_path(@review.station.id, @review.id), method: :get) %><%= link_to('<i class="fa fa-2x fa-user"></i>'.html_safe, profile_path(current_user.profile.id), method: :get ) %></div> 
       
   </div>
+    
 
 <% else %>
 
@@ -16,7 +17,7 @@
 
 <% end %>
 
-<div class="row">
+<div class="row adjust">
   <div class="col-xs-12"></div>
 
     <ul>
@@ -42,8 +43,8 @@
 
       <li><strong>Instruments:</strong> <%= @review.instruments %></li>
 
-      <li><strong>More Info:</strong> <%= @review.add_info %></li>
-
+      <li>More Info: <%= @review.add_info %></li>
+    
     </ul>
 
   </div>
