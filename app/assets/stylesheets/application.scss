@@ -18,19 +18,39 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@font-face {
-  font-family: "Samarkan";
-  src: font-url('samarkan.ttf') format("truetype");
+<<<<<<< HEAD
+.col-xs-12 {
+
+  h6 {
+    margin-left: 1vw;
+    
+    display: inline;
+  }
+
 }
 
-.heading {
-  padding-left: 10px;
-  font-size: 36px;
+.adjust {
+  width: 90%;
+
+  @font-face {
+    font-family: "Samarkan";
+    src: font-url('samarkan.ttf') format("truetype");
+  }
+
+  .heading {
+    padding-left: 10px;
+    font-size: 36px;
+  }
 }
 
 .col-xs-10 {
-  
-  img {
+  h6 {
+    margin-left: 7vw;
+    
+    display: inline;
+  }
+
+  img, .my-profile {
     margin-left: 5vw;
   }
 }
@@ -41,9 +61,10 @@
   .navbar-header {
 
     .navbar-brand {
-      color: #666970;
-      text-shadow: 0.5px 0.5px 0.5px #facb5d;
-      font-family: "Permanent Marker", cursive;
+      color: #facb5d;
+      text-shadow: 0.5px 0.5px 0.5px #990645;
+      font-family: 'Permanent Marker', cursive;
+
     }
 
     .navbar-toggle {
@@ -149,8 +170,8 @@ ul > li {
 
 
 .edit-profile {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 3vw;
+  margin-right: 3vw;
 
   form {
     margin: 1vw;
@@ -158,8 +179,13 @@ ul > li {
 }
 
 .edit-review {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 3vw;
+  margin-right: 3vw;
+
+  h1, h4 {
+    margin-left: 3vw;
+  }
+
 }
 
 #map-container, #map {
