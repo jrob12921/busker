@@ -2,14 +2,13 @@
   <h1 class="heading"><%= link_to(@station_with_line, station_path(@review.station.id), method: :get) %><h1>
 </div>
 
-
 <% if user_signed_in? && current_user.id == @review.user_id %>
 
-<div class="col-xs-12"
-  <div><span class="heading">My Review</span><%= link_to('<i class="fa fa-2x fa-pencil-square"></i>'.html_safe, edit_station_review_path(@review.station.id, @review.id), method: :get) %><%= link_to('<i class="fa fa-2x fa-user"></i>'.html_safe, profile_path(current_user.profile.id), method: :get ) %>
-  </div> 
+  <div class="col-xs-12">
 
-</div>
+    <div><span class="heading">My Review </span><%= link_to('<i class="fa fa-2x fa-pencil-square"></i>'.html_safe, edit_station_review_path(@review.station.id, @review.id), method: :get) %><%= link_to('<i class="fa fa-2x fa-user"></i>'.html_safe, profile_path(current_user.profile.id), method: :get ) %></div> 
+      
+  </div>
 
 <% else %>
 
