@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 
 
-  after_create do
+  before_create do
     Profile.create(user_id: self.id)
   end
 end
