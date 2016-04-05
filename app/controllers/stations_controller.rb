@@ -10,9 +10,10 @@ class StationsController < ApplicationController
       end
       marker.infowindow "<a class='info_station' href='stations/#{station.id}'>#{station.name} #{lines_as_src}</a>"
       marker.picture({
-        "picture" => "/images/train_icon.png",
-        "width" => 10,
-        "height" => 10
+        anchor: [40,58],
+        url: "#{view_context.image_path("train_icon.png")}",
+        width: "44",
+        height: "58"
       })
     end    
   end
