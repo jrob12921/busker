@@ -22,33 +22,56 @@
 
 <div class="row adjust">
   <div class="col-xs-12"></div>
+</div>
 
-    <ul>
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Title:</strong></div>
+  <div class="col-xs-6"><%= @review.title %></div>
+</div>
 
-      <li><strong>Title:</strong> <%= @review.title %></li>
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Date Seen:</strong></div> 
+  <div class="col-xs-6"><%= @review.date_seen.strftime("%-m/%-d/%Y") %></div>
+</div>
 
-      <li><strong>Date Seen:</strong> <%= @review.date_seen.strftime("%-m/%-d/%Y") %></li>
-      <br>
-      <li><%= image_tag(@review.avatar.url(:medium), class: "avatar-pic") %></li>
+  <br>
 
-      <li class="rating">
-       <strong>Rating:</strong>
-        <% if @review.rating == false %>
-          <i class="fa fa-2x fa-thumbs-down" id="down"></i>
-        <% else %>
-          <i class="fa fa-2x fa-thumbs-up" id="up"></i>
-        <% end %>
-      </li>
+<div class="row edit-profile col-xs-12">
+  
+  <%= image_tag(@review.avatar.url(:medium), class: "avatar-pic") %>
 
-      <li><strong>Content:</strong> <%= @review.content %></li>
+</div>
 
-      <li><strong>Artist Name:</strong> <%= @review.artist_name %></li> 
-
-      <li><strong>Instruments:</strong> <%= @review.instruments %></li>
-
-      <li><strong>More Info:</strong> <%= @review.add_info %></li>
-    
-    </ul>
-
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Rating:</strong></div>
+  <div class="col-xs-6">
+    <% if @review.rating == false %>
+      <i class="fa fa-2x fa-thumbs-down" id="down"></i>
+    <% else %>
+      <i class="fa fa-2x fa-thumbs-up" id="up"></i>
+    <% end %>
   </div>
 </div>
+
+
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Content:</strong></div> 
+  <div class="col-xs-6"><%= @review.content %></div>
+</div>
+
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Artist Name:</strong></div>
+  <div class="col-xs-6"><%= @review.artist_name %></div>
+</div> 
+
+
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>Instruments:</strong></div>
+  <div class="col-xs-6"><%= @review.instruments %></div>
+</div>
+
+<div class="row edit-profile">
+  <div class="col-xs-4"><strong>More Info:</strong></div>
+  <div class="col-xs-"><%= @review.add_info %></div>
+</div>
+
