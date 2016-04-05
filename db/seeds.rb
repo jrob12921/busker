@@ -10,7 +10,7 @@
 # seed users
 ############
 
-User.destroy_all
+User.destroy_all unless User.count.zero?
 
 users = [
   ["a@a.com", "aaaaaaaa", "aaaaaaaa"],
@@ -27,7 +27,7 @@ end
 # seed profiles
 ###############
 
-Profile.destroy_all
+Profile.destroy_all unless Profile.count.zero?
 
 x = User.first.id  
 
@@ -45,8 +45,6 @@ end
 ###############
 # seed stations
 ###############
-
-Station.destroy_all
 
 stations = [
 
@@ -524,8 +522,12 @@ stations = [
 
 ]
 
-stations.each do | a, b, c, d |
-  Station.create(name: a, line: b, lat: c, long: d)
+if Station.count.zero?
+
+  stations.each do | a, b, c, d |
+    Station.create(name: a, line: b, lat: c, long: d)
+  end
+
 end 
 
 
@@ -535,7 +537,7 @@ end
 
 y = Station.first.id
 
-Review.destroy_all
+Review.destroy_all unless Review.count.zero?
 
 reviews = [
   [x, y, "OMG This Guy is Amazing!", "I loved listening to he guy. He is so fantastic. I recommend him to everyone.", 1, DateTime.new(2016, 3, 25), "IDK", "guitar","nice hair"],
