@@ -10,11 +10,7 @@ class User < ActiveRecord::Base
 
 
 
-  before_create :make_profile
-
-  private
-
-  def make_profile
+  after_create do
     Profile.create(user_id: self.id)
   end
 end
