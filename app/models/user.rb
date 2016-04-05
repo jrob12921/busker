@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-
+  accepts_nested_attributes_for :profile
 
   after_create do
     Profile.create(user_id: self.id)
